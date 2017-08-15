@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:textAlignment="center"
+    tools:context="com.example.breezil.chatty.Activity.SettupActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/settingImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/default_avatar"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/settingDisplayName"
+        android:layout_alignStart="@+id/settingEditStatus" />
+
+    <TextView
+        android:id="@+id/settingDisplayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
+        android:text="@string/display_name"
+        android:textColor="@color/colorWhite"
+        android:textSize="30sp"
+        android:layout_above="@+id/settingHeyMessge"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/settingHeyMessge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hey_there_i_m_using_this_app"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/settingEditStatus"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/settingsChangeProfImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/edit_status"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite" />
+
+    <Button
+        android:id="@+id/settingsChangeProfImage"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="69dp"
+        android:backgroundTint="@color/colorWhite"
+        android:text="@string/change_profile_image"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

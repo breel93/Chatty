@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.breezil.chatty.Activity.StatusActivity">
+    <include layout="@layout/chatty_app_bar" android:id="@+id/statusAppBar"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:id="@+id/statusInput"
+        android:hint="@string/enter_status"
+        android:layout_below="@+id/statusAppBar"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="95dp" />
+
+    <Button
+        android:id="@+id/statusPostbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="13dp"
+        android:text="@string/post_status"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/statusInput"
+        android:layout_alignParentEnd="true"
+        android:textColor="@color/colorWhite"
+        android:backgroundTint="@color/colorPrimary"
+        />
+
+</RelativeLayout>

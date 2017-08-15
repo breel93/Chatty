@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "850966165456",
+    "firebase_url": "https://chatty-79304.firebaseio.com",
+    "project_id": "chatty-79304",
+    "storage_bucket": "chatty-79304.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850966165456:android:9382be7b78a7b26a",
+        "android_client_info": {
+          "package_name": "com.example.breezil.chatty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850966165456-426m2m55q7k8r4ts2ubfn43hc7j3sabk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.breezil.chatty",
+            "certificate_hash": "5b73f7539216aa5959db3f5f3aa7414aa78cf84e"
+          }
+        },
+        {
+          "client_id": "850966165456-adc02gacfbi5qubbu6ou8tm8dclh0i12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV1ntlksc48gOVyy4wJlULn0IxNOUjpxY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850966165456-adc02gacfbi5qubbu6ou8tm8dclh0i12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
