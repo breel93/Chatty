@@ -10,6 +10,14 @@ import android.widget.TextView;
 
 import com.example.breezil.chatty.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -24,6 +32,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     private List<Messages> messagesList;
     private FirebaseAuth mAuth;
+
+    private DatabaseReference mUserDataBase;
 
 
 
@@ -47,17 +57,19 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         public TextView messageText;
         public CircleImageView profImage;
+        public TextView displayName;
 
         public MessageViewHolder(View itemView) {
             super(itemView);
 
             messageText = (TextView) itemView.findViewById(R.id.messageSingleText);
             profImage = (CircleImageView) itemView.findViewById(R.id.messageSingleProfileImg);
+            displayName = (TextView) itemView.findViewById(R.id.chatDisplayNametxt);
         }
     }
 
     @Override
-    public void onBindViewHolder(MessageViewHolder holder, int position) {
+    public void onBindViewHolder(final MessageViewHolder holder, int position) {
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -69,13 +81,24 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         String from_user = c.getFrom();
 
-//        if(from_user.equals(current_user_id)){
-//            holder.messageText.setBackgroundColor(Color.WHITE);
-//            holder.messageText.setTextColor(Color.BLUE);
-//        }else {
-//            holder.messageText.setBackgroundResource(R.drawable.message_text_background);
-//            holder.messageText.setTextColor(Color.WHITE);
-//        }
+        mUserDataBase = FirebaseDatabase.getInstance().getReference().child("Users").child(from_user);
+
+        mUserDataBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.child("name").getValue().toString();
+                String image = dataSnapshot.child("thumb_image").getValue().toString();
+
+                holder.displayName.setText(name);
+                Picasso.with(holder.profImage.getContext()).load(image)
+                        .placeholder(R.drawable.default_avatar).into(holder.profImage);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
 
