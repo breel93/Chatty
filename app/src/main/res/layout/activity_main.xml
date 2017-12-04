@@ -22,8 +22,9 @@
    <android.support.v4.view.ViewPager
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_below="@+id/appBarLayout"
-       android:id="@+id/tabpager">
+       android:id="@+id/tabpager"
+       android:layout_alignParentEnd="true"
+       android:layout_below="@id/appBarLayout">
 
    </android.support.v4.view.ViewPager>
 

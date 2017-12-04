@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(item.getItemId() == R.id.main_setting) {
             Intent settingIntent = new Intent(MainActivity.this,SettupActivity.class);
+            //Intent settingIntent = new Intent(MainActivity.this,FriendsFragment.class);
             startActivity(settingIntent);
 
         }
