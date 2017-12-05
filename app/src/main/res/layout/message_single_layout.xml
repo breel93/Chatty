@@ -34,7 +34,19 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/messageSingleText"
+        android:layout_alignStart="@id/messageSingleText"
         android:layout_marginStart="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:id="@+id/messageImage"
+        android:scaleType="centerCrop"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/messageSingleText"
+        android:layout_alignStart="@+id/messageSingleText"
+        android:layout_toEndOf="@+id/chatDisplayNametxt"/>
 
 </RelativeLayout>

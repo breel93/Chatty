@@ -118,11 +118,11 @@ public class UserProfile extends AppCompatActivity {
                 String display_name = dataSnapshot.child("name").getValue().toString();
                 String status = dataSnapshot.child("status").getValue().toString();
                 final String Image = dataSnapshot.child("image").getValue().toString();
-//
-//                //set the string to the field
+
+                //set the string to the field
                mUserProfileName.setText(display_name);
                mUserProfileStatus.setText(status);
-               // Picasso.with(UserProfile.this).load(Image).placeholder(R.drawable.default_avatar).into(mUserProfileImage);
+
                 Picasso.with(UserProfile.this).load(Image).networkPolicy(NetworkPolicy.OFFLINE)
                         .placeholder(R.drawable.default_avatar).into(mUserProfileImage, new Callback() {
                     @Override

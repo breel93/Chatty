@@ -28,7 +28,9 @@ public class AllUsersActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private RecyclerView mUserlist;
 
+    //firebase ref
     private DatabaseReference mUserRef;
+
     private DatabaseReference mUserDataRef;
 
     private FirebaseAuth mAuth;
@@ -46,13 +48,23 @@ public class AllUsersActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+
+        /**
+        * firebase database that points to the user node
+         */
         mUserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         mUserRef.keepSynced(true);
 
 
+
+        /*
+        * Get the current user assigned to current_user variable
+         */
         current_user = FirebaseAuth.getInstance().getCurrentUser();
 
-
+        /*
+        * set a child node to the Users,(user id) as to store the user profiles
+         */
         mUserDataRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
 
 
@@ -73,11 +85,15 @@ public class AllUsersActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         //Firebase recycler Adapter
+        //from firebase ui, firebase default recycler adapter here we set a firebase adapter object
+        // firebaseRecycleradapter) thattake the model class ,the custom single layout ,
+        // the view holderclass and the database reference
+        //as arguments
         FirebaseRecyclerAdapter<Users, UsersViewHolder > firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Users, UsersViewHolder>(
-                Users.class,
-                R.layout.usersinglelayout,
-                UsersViewHolder.class,
-                mUserRef
+                Users.class,    //modelclass
+                R.layout.usersinglelayout, //layout design in the R file
+                UsersViewHolder.class,    //viewHolder class
+                mUserRef                  //firebase reference to user node.
 
 
         ) {
@@ -91,6 +107,8 @@ public class AllUsersActivity extends AppCompatActivity {
 
                 //get users position on when its clicked
                 final String user_id = getRef(position).getKey();
+
+
                 //onclick on the user lists
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -102,6 +120,7 @@ public class AllUsersActivity extends AppCompatActivity {
                 });
             }
         };
+        //attach the recycler view to the firebase adapter
         mUserlist.setAdapter(firebaseRecyclerAdapter);
 
 

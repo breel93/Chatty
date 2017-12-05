@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -58,6 +59,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         public TextView messageText;
         public CircleImageView profImage;
         public TextView displayName;
+        public ImageView messageImage;
 
         public MessageViewHolder(View itemView) {
             super(itemView);
@@ -65,6 +67,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             messageText = (TextView) itemView.findViewById(R.id.messageSingleText);
             profImage = (CircleImageView) itemView.findViewById(R.id.messageSingleProfileImg);
             displayName = (TextView) itemView.findViewById(R.id.chatDisplayNametxt);
+            messageImage = (ImageView) itemView.findViewById(R.id.messageImage);
         }
     }
 
@@ -80,6 +83,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
 
         String from_user = c.getFrom();
+        String message_type = c.getType();
 
         mUserDataBase = FirebaseDatabase.getInstance().getReference().child("Users").child(from_user);
 
@@ -100,11 +104,25 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             }
         });
 
-
-
-        holder.messageText.setText(c.getMessage());
+        //holder.messageText.setText(c.getMessage());
         //holder.profImage.setImageResource(c.ge);
+
+        if (message_type.equals("text")){
+            holder.messageText.setText(c.getMessage());
+            holder.messageImage.setVisibility(View.VISIBLE);
+        }else{
+            holder.messageText.setVisibility(View.INVISIBLE);
+
+            Picasso.with(holder.profImage.getContext()).load(c.getMessage())
+                    .placeholder(R.drawable.default_avatar).into(holder.messageImage);
+        }
+
+
+
+
     }
+
+
 
     @Override
     public int getItemCount() {
