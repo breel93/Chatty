@@ -1,5 +1,6 @@
 package com.example.breezil.chatty.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -83,6 +84,8 @@ public class ChatActivity extends AppCompatActivity {
 
     private LinearLayoutManager mLayout;
 
+    private ProgressDialog mProgress;
+
     //variable of the Message adapter class
     private MessageAdapter messageAdapter;
 
@@ -131,6 +134,8 @@ public class ChatActivity extends AppCompatActivity {
         mImageStorage = FirebaseStorage.getInstance().getReference();
 
         mAuth = FirebaseAuth.getInstance();
+
+        mProgress = new ProgressDialog(this);
 
         //get current users id as object
         currentUserId = mAuth.getCurrentUser().getUid();
@@ -274,29 +279,10 @@ public class ChatActivity extends AppCompatActivity {
 
         if (requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK){
 
+            mProgress.setMessage("sending");
+            mProgress.show();
+
             Uri imageUri = data.getData();
-
-            File thumb_filepath = new File(imageUri.getPath()); //
-            Bitmap bitmap = null;
-            try {
-                bitmap = new Compressor(this)
-                        .setMaxHeight(200)
-                        .setMaxHeight(200)
-                        .setQuality(50)
-                        .compressToBitmap(thumb_filepath);
-
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-            //from firebase doc upload bitmap method
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            if (bitmap != null) {
-                bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
-            }
-            final byte[] thumb_byte = byteArrayOutputStream.toByteArray();
-
-
-
 
 
             final String current_user = "messages/" + currentUserId + "/" + chatUser;
@@ -311,49 +297,41 @@ public class ChatActivity extends AppCompatActivity {
 
             StorageReference filepath = mImageStorage.child("message_images")
                     .child(push_id + ".jpg");
-            final StorageReference thumb_path = mImageStorage.child("message_images").child("thumbs").child(push_id + ".jpg");
-
 
             filepath.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                     if(task.isSuccessful()){
                         //noinspection VisibleForTests
-                        //final String download_url = task.getResult().getDownloadUrl().toString();
-
-                        UploadTask uploadTask = thumb_path.putBytes(thumb_byte);
-                        uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                                //noinspection VisibleForTests
-                                String thumb_downloadurl = task.getResult().getDownloadUrl().toString();
-                                if (task.isSuccessful()){
-
-                                    Map messageMap = new HashMap();
-                                    messageMap.put("message",thumb_downloadurl);
-                                    messageMap.put("seen",false);
-                                    messageMap.put("type","image");
-                                    messageMap.put("time",ServerValue.TIMESTAMP);
-                                    messageMap.put("from",currentUserId);
-
-                                    Map messageUserMap = new HashMap();
-                                    messageUserMap.put(current_user + "/" + push_id, messageMap);
-                                    messageUserMap.put(chat_user + "/" + push_id, messageMap);
+                        final String download_url = task.getResult().getDownloadUrl().toString();
 
 
-                                    mRootRef.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
-                                        @Override
-                                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                                            if (databaseError != null){
-                                                Log.d("CHAT_LOG",databaseError.getMessage().toString());
-                                            }
-                                        }
-                                    });
+
+
+
+                        Map messageMap = new HashMap();
+                        messageMap.put("message",download_url);
+                        messageMap.put("seen",false);
+                        messageMap.put("type","image");
+                        messageMap.put("time",ServerValue.TIMESTAMP);
+                        messageMap.put("from",currentUserId);
+
+                        Map messageUserMap = new HashMap();
+                        messageUserMap.put(current_user + "/" + push_id, messageMap);
+                        messageUserMap.put(chat_user + "/" + push_id, messageMap);
+
+
+                        mRootRef.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
+                                @Override
+                                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                    if (databaseError != null){
+
+                                        Log.d("CHAT_LOG",databaseError.getMessage().toString());
+                                        mProgress.dismiss();
+                                    }
                                 }
-                            }
                         });
 
-                        //
 
 
 
