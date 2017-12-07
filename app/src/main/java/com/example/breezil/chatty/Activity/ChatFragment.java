@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -101,14 +103,30 @@ public class ChatFragment extends Fragment {
             protected void populateViewHolder(final ChatHolder viewHolder, final Chat_Model model, int position) {
 
                 final String list_Uid = getRef(position).getKey();
-                Query lastMessageQuery = mMessagedb.child(list_Uid).limitToLast(1);
+
+
+
+                final Query lastMessageQuery = mMessagedb.child(list_Uid).limitToLast(1);
                 lastMessageQuery.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
+                        String messageType = dataSnapshot.child("type").getValue().toString();
 
-                        String data = dataSnapshot.child("message").getValue().toString();
-                        viewHolder.setMessage(data,model.isSeen());
+                        if(messageType.equals("image")){
+
+                            viewHolder.setMessage("Image",model.isSeen());
+
+                        }else if(messageType.equals("text")){
+                            String data = dataSnapshot.child("message").getValue().toString();
+                            viewHolder.setMessage(data,model.isSeen());
+                        }
+                        else {
+                            viewHolder.setMessage("Media",model.isSeen());
+                        }
+
+
+
                     }
 
                     @Override
@@ -195,9 +213,22 @@ public class ChatFragment extends Fragment {
             TextView userName = (TextView) mView.findViewById(R.id.userNametext);
             userName.setText(name);
         }
-        public void setUserImage(String thumb_image, Context context){
-            CircleImageView userImage = (CircleImageView) mView.findViewById(R.id.userSingleImage);
-            Picasso.with(context).load(thumb_image).placeholder(R.drawable.default_avatar).into(userImage);
+        public void setUserImage (final String Image, final Context cntxt){
+            final CircleImageView userImage = (CircleImageView) itemView.findViewById(R.id.userSingleImage);
+            Picasso.with(cntxt).load(Image).networkPolicy(NetworkPolicy.OFFLINE)
+                    .placeholder(R.drawable.default_avatar).into(userImage, new Callback() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onError() {
+                    Picasso.with(cntxt).load(Image)
+                            .placeholder(R.drawable.default_avatar).into(userImage);
+                }
+            });
+
 
         }
 

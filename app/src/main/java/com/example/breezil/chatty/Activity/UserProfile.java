@@ -55,6 +55,8 @@ public class UserProfile extends AppCompatActivity {
     private DatabaseReference mFriendsDatabase;
     private DatabaseReference mNotificationDatabase;
 
+    private DatabaseReference mMessageDb;
+
     private DatabaseReference mRootRef;
 
     @Override
@@ -79,6 +81,9 @@ public class UserProfile extends AppCompatActivity {
 
         //Firebase notification
         mNotificationDatabase = FirebaseDatabase.getInstance().getReference().child("Notifications");
+
+        mMessageDb = FirebaseDatabase.getInstance().getReference().child("messages");
+
 
 
         //firebase current users instance
@@ -319,9 +324,28 @@ public class UserProfile extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
-                                            mUserProfilesendRequest.setEnabled(true);
-                                            current_state = "not_friend";
-                                            mUserProfilesendRequest.setText("Send Friend Request");
+
+                                            mMessageDb.child(mCurrentUser.getUid()).child(user_id).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        mMessageDb.child(user_id).child(mCurrentUser.getUid()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                            @Override
+                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                if(task.isSuccessful()){
+                                                                    mUserProfilesendRequest.setEnabled(true);
+                                                                    current_state = "not_friend";
+                                                                    mUserProfilesendRequest.setText("Send Friend Request");
+                                                                }
+                                                            }
+                                                        });
+                                                    }
+
+                                                }
+                                            });
+
+
+
 
                                         }
                                     }

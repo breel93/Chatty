@@ -329,6 +329,8 @@ public class ChatActivity extends AppCompatActivity {
                                         Log.d("CHAT_LOG",databaseError.getMessage().toString());
                                         mProgress.dismiss();
                                     }
+
+                                    mProgress.dismiss();
                                 }
                         });
 
