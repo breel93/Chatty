@@ -336,6 +336,7 @@ public class UserProfile extends AppCompatActivity {
                                                                     mUserProfilesendRequest.setEnabled(true);
                                                                     current_state = "not_friend";
                                                                     mUserProfilesendRequest.setText("Send Friend Request");
+
                                                                 }
                                                             }
                                                         });
