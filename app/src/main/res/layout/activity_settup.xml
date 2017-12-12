@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/settingsChangeProfImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorAccent"
         android:text="@string/edit_status"
         android:textAlignment="center"
@@ -55,12 +55,29 @@
         android:id="@+id/settingsChangeProfImage"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="69dp"
+        android:layout_marginBottom="80dp"
         android:backgroundTint="@color/colorWhite"
         android:text="@string/change_profile_image"
         android:textColor="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/relLayoutButBar"
+        android:layout_alignParentBottom="true">
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/bottomNavView_Bar"
+            android:background="@drawable/greyborderbottom"
+            app:menu="@menu/bottom_nav_menu"
+            >
+
+        </android.support.design.widget.BottomNavigationView>
+    </RelativeLayout>
 
 
 </RelativeLayout>

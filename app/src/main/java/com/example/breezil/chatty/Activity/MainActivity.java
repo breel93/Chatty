@@ -1,6 +1,8 @@
 package com.example.breezil.chatty.Activity;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -48,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Toolbar
-        mToolbar = (Toolbar) findViewById(R.id.mainActtoolbar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("chatty");
+;
         //Tabs
         mViewPager = (ViewPager) findViewById(R.id.tabpager);
         myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
@@ -60,6 +60,46 @@ public class MainActivity extends AppCompatActivity {
 
         mTablayout = (TabLayout) findViewById(R.id.mainTabView);
         mTablayout.setupWithViewPager(mViewPager);
+        mTablayout.getTabAt(0).setIcon(R.mipmap.ic_req);
+        mTablayout.getTabAt(1).setIcon(R.mipmap.ic_chatty);
+        mTablayout.getTabAt(2).setIcon(R.mipmap.ic_friend);
+
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationHelper.disableShiftMode(bottomNavigationView);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.chat:
+                        break;
+                    case R.id.search:
+                        startActivity(new Intent(MainActivity.this,AllUsersActivity.class));
+                        break;
+                    case R.id.user:
+                        startActivity(new Intent(MainActivity.this,SettupActivity.class));
+                        break;
+                    case R.id.settings:
+                        startActivity(new Intent(MainActivity.this,SettingsActivity.class));
+                        break;
+
+
+                }
+
+
+
+                return false;
+            }
+        });
 
     }
 
@@ -95,54 +135,5 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    //Creating the option menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-         super.onCreateOptionsMenu(menu);
-        //set the menu layout
-         getMenuInflater().inflate(R.menu.main_menu,menu);
-         return true;
-    }
-    //Option menu selected
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        super.onOptionsItemSelected(item);
-        //if logout item is selected
 
-
-        if(item.getItemId() == R.id.main_logout) {
-
-            FirebaseAuth.getInstance().signOut();
-            sendToStart();
-        }
-        if(item.getItemId() == R.id.main_setting) {
-            Intent settingIntent = new Intent(MainActivity.this,SettupActivity.class);
-            //Intent settingIntent = new Intent(MainActivity.this,FriendsFragment.class);
-            startActivity(settingIntent);
-
-        }
-        if(item.getItemId() == R.id.allUsers){
-            Intent allUserIntent = new Intent (MainActivity.this,AllUsersActivity.class);
-            startActivity(allUserIntent);
-
-        }
-
-
-//        switch (item.getItemId()){
-//            case (R.id.main_logout):
-//                mAuth.signOut();
-//                sendToStart();
-//            case(R.id.main_setting):
-//                Intent settingIntent = new Intent(MainActivity.this,SettupActivity.class);
-//                startActivity(settingIntent);
-//                finish();
-////            case(R.id.allUsers):
-////                Intent allUserIntent = new Intent (MainActivity.this,AllUsersActivity.class);
-////                startActivity(allUserIntent);
-////                finish();
-
-       // }
-
-        return true;
-    }
 }

@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.util.LruCache;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -170,6 +173,46 @@ public class SettupActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationHelper.disableShiftMode(bottomNavigationView);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.chat:
+
+                        startActivity(new Intent(SettupActivity.this,MainActivity.class));
+                        break;
+                    case R.id.search:
+                        startActivity(new Intent(SettupActivity.this,AllUsersActivity.class));
+                        break;
+                    case R.id.user:
+
+                        break;
+                    case R.id.settings:
+                        startActivity(new Intent(SettupActivity.this,SettingsActivity.class));
+                        break;
+
+
+                }
+
+
+
+                return false;
+            }
+        });
+
     }
 
     @Override

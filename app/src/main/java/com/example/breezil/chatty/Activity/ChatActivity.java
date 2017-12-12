@@ -286,7 +286,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
             final String current_user = "messages/" + currentUserId + "/" + chatUser;
-            final String chat_user = "messages/" + chatUser + "/" + current_user;
+            final String chat_user = "messages/" + chatUser + "/" + currentUserId;
 
             DatabaseReference user_messages_push = mRootRef.child("messages")
                     .child(currentUserId).child(chatUser).push();
@@ -333,8 +333,6 @@ public class ChatActivity extends AppCompatActivity {
                                     mProgress.dismiss();
                                 }
                         });
-
-
 
 
 

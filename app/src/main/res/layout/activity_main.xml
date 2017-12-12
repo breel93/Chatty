@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/appBarLayout">
-        <include layout="@layout/chatty_app_bar" android:id="@+id/mainActtoolbar" />
 
+        <!--<include layout="@layout/chatty_app_bar" android:id="@+id/mainActtoolbar" />-->
         <android.support.design.widget.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,9 +24,21 @@
        android:layout_height="wrap_content"
        android:id="@+id/tabpager"
        android:layout_alignParentEnd="true"
-       android:layout_below="@id/appBarLayout">
+       android:layout_below="@id/appBarLayout"
+       android:layout_above="@+id/bottomNavView_Bar">
 
    </android.support.v4.view.ViewPager>
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottomNavView_Bar"
+        android:background="@drawable/greyborderbottom"
+        app:menu="@menu/bottom_nav_menu">
+
+
+    </android.support.design.widget.BottomNavigationView>
 
 
 </RelativeLayout>

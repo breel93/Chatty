@@ -2,11 +2,15 @@ package com.example.breezil.chatty.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -77,6 +81,43 @@ public class AllUsersActivity extends AppCompatActivity {
         mUserlist = (RecyclerView) findViewById(R.id.userList);
        // mUserlist.setHasFixedSize(true);
         mUserlist.setLayoutManager(new LinearLayoutManager(this));
+
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationHelper.disableShiftMode(bottomNavigationView);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.chat:
+                        startActivity(new Intent(AllUsersActivity.this,MainActivity.class));
+                        break;
+                    case R.id.search:
+
+                        break;
+                    case R.id.user:
+                        startActivity(new Intent(AllUsersActivity.this,SettupActivity.class));
+                        break;
+                    case R.id.settings:
+                        startActivity(new Intent(AllUsersActivity.this,SettingsActivity.class));
+                        break;
+
+
+                }
+
+
+
+                return false;
+            }
+        });
 
 
     }
