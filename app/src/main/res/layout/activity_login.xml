@@ -4,34 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.breezil.chatty.Activity.LoginActivity">
+    tools:context="com.example.breezil.chatty.Activity.LoginActivity"
+    android:background="@drawable/chat_image_one"
+    >
     <include layout="@layout/chatty_app_bar" android:id="@+id/loginToolbar"/>
 
     <EditText
         android:id="@+id/loginEmailtext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/loginToolbar"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="150dp"
         android:ems="10"
         android:hint="@string/enter_email"
-        android:inputType="textEmailAddress" />
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/white_text_background"/>
 
     <EditText
         android:id="@+id/loginPasswordtext"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignStart="@+id/loginEmailtext"
         android:layout_below="@+id/loginEmailtext"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
-        android:hint="@string/enter_password" />
+        android:gravity="center"
+        android:hint="@string/enter_password"
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/white_text_background"/>
 
     <Button
         android:id="@+id/loginLoginBtn"
@@ -39,10 +51,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/loginPasswordtext"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:text="@string/logintext"
+        android:background="@drawable/white_text_background"
         android:backgroundTint="@color/colorWhite"
         android:textColor="@color/colorPrimary"/>
 
