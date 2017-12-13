@@ -7,43 +7,44 @@
     tools:context="com.example.breezil.chatty.Activity.RegisterActivity"
     android:background="@drawable/chat_image_two">
 
-   <include layout="@layout/chatty_app_bar" android:id="@+id/regToolBar"/>
 
     <EditText
-    android:id="@+id/regUsernametext"
-    android:layout_width="378dp"
-    android:layout_height="50dp"
-    android:layout_above="@+id/regEmailtext"
-    android:layout_alignParentStart="true"
-    android:layout_marginBottom="18dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:ems="10"
-    android:hint="@string/username"
-    android:inputType="textPersonName"
-    app:layout_constraintHorizontal_bias="0.503"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    tools:layout_editor_absoluteX="-78dp"
-    tools:layout_editor_absoluteY="55dp" />
+        android:id="@+id/regUsernametext"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/regEmailtext"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:gravity="center"
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:background="@drawable/white_text_background"
+        />
 
     <EditText
         android:id="@+id/regEmailtext"
-        android:layout_width="378dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_above="@+id/regPasswordtext"
         android:layout_alignEnd="@+id/regUsernametext"
         android:layout_marginBottom="18dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
         android:ems="10"
         android:hint="@string/enter_email"
         android:inputType="textEmailAddress"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="120dp" />
+        android:background="@drawable/white_text_background"/>
 
     <EditText
         android:id="@+id/regPasswordtext"
@@ -52,16 +53,15 @@
         android:layout_above="@+id/regRegBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="18dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
         android:ems="10"
         android:hint="@string/enter_password"
         android:inputType="textPassword"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="-76dp"
-        tools:layout_editor_absoluteY="198dp" />
+        android:background="@drawable/white_text_background"/>
 
     <Button
         android:id="@+id/regRegBtn"
@@ -70,14 +70,14 @@
         android:text="@string/create_account"
         android:textColor="#FFFFFF"
         android:backgroundTint="@color/colorPrimary"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         tools:layout_editor_absoluteY="343dp"
         android:layout_marginBottom="132dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/white_text_background"
+        />
 
     <TextView
         android:id="@+id/textView2"

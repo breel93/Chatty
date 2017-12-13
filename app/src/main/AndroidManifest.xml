@@ -27,13 +27,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.StartActivity" />
+
         <activity
             android:name=".Activity.RegisterActivity"
-            android:parentActivityName=".Activity.StartActivity" />
+            android:parentActivityName=".Activity.LoginActivity" />
         <activity
             android:name=".Activity.LoginActivity"
-            android:parentActivityName=".Activity.StartActivity" />
+             />
         <activity
             android:name=".Activity.SettupActivity"
             android:parentActivityName=".Activity.MainActivity" />

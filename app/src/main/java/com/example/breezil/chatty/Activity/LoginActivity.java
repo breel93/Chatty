@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseReference mUsertokenref;
 
 
-    private Toolbar mToolBar;
+
 
     private ProgressDialog mProgress;
 
@@ -49,10 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         mUsertokenref = FirebaseDatabase.getInstance().getReference().child("Users");
 
         //toolbar
-        mToolBar = (Toolbar) findViewById(R.id.loginToolbar);
-        setSupportActionBar(mToolBar);
-        getSupportActionBar().setTitle("Login");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mProgress = new ProgressDialog(this);
 

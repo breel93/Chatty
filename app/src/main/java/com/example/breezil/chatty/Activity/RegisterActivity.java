@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button regRegBtn;
     private ProgressDialog progDialog;
 
-    private Toolbar mToolbar;
+
     //Firebase!!!
     private FirebaseAuth mAuth;
     private DatabaseReference mdataref;
@@ -43,11 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        //Toolbar
-        mToolbar = (Toolbar) findViewById(R.id.regToolBar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Create Account");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         //get text for each field
