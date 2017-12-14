@@ -14,17 +14,20 @@ import android.view.MenuItem;
 import com.example.breezil.chatty.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
    //Firebase
     private FirebaseAuth mAuth;
+    private DatabaseReference mUserDataRef;
     private DatabaseReference mDataRef;
 
     private FirebaseUser currentUser;
-
 
 
 
@@ -45,9 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
         currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            mDataRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
+            mUserDataRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
 
         }
+
+        mDataRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
         //Toolbar
 ;
@@ -101,6 +106,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        checkUserExist();
+
+    }
+
+    private void checkUserExist() {
+
+        if(mAuth.getCurrentUser() != null ){
+
+            final String user_id = mAuth.getCurrentUser().getUid();
+            mDataRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(!dataSnapshot.hasChild(user_id)){
+                        Intent otherSettup = new Intent(MainActivity.this,OtherSettup.class);
+                        otherSettup.putExtra("user_id",user_id);
+                        otherSettup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(otherSettup);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 
     @Override
@@ -113,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             sendToStart();
         }else {
             //online
-            mDataRef.child("online").setValue("true");
+            mUserDataRef.child("online").setValue("true");
         }
 
     }
@@ -123,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         //offline
         if(currentUser != null) {
-            mDataRef.child("online").setValue(ServerValue.TIMESTAMP);
+            mUserDataRef.child("online").setValue(ServerValue.TIMESTAMP);
             //firebase time stamp
            // mDataRef.child("lastSeen").setValue(ServerValue.TIMESTAMP);
         }

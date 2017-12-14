@@ -27,13 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activity.RegisterActivity"
             android:parentActivityName=".Activity.LoginActivity" />
-        <activity
-            android:name=".Activity.LoginActivity"
-             />
+        <activity android:name=".Activity.LoginActivity" />
         <activity
             android:name=".Activity.SettupActivity"
             android:parentActivityName=".Activity.MainActivity" />
@@ -58,7 +55,8 @@
         <activity
             android:name=".Activity.ChatActivity"
             android:parentActivityName=".Activity.MainActivity" />
-        <activity android:name=".Activity.SettingsActivity"></activity>
+        <activity android:name=".Activity.SettingsActivity" />
+        <activity android:name=".Activity.OtherSettup"></activity>
     </application>
 
 </manifest>

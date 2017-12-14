@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.breezil.chatty.Activity.OtherSettup"
+    android:background="@drawable/chat_image_one">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/white_text_background"
+        android:hint="Enter Display"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColorHint="@color/colorWhite"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="100dp"
+        android:id="@+id/otherUserNametext"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Save"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/otherUserNametext"
+        android:background="@drawable/white_text_background"
+        android:backgroundTint="@color/colorWhite"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/otherSavebtn"
+        />
+    <ProgressBar
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/saveOtherProgress"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="180dp"
+        android:layout_below="@id/otherUserNametext"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
