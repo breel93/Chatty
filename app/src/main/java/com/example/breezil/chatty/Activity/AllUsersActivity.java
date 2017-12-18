@@ -12,6 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.breezil.chatty.R;
@@ -20,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
@@ -29,8 +33,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AllUsersActivity extends AppCompatActivity {
 
-    private Toolbar mToolbar;
+
     private RecyclerView mUserlist;
+
+    private EditText mSearchText;
+    private ImageButton mSearchbtn;
 
     //firebase ref
     private DatabaseReference mUserRef;
@@ -52,6 +59,12 @@ public class AllUsersActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        mSearchText = (EditText) findViewById(R.id.searchText);
+        mSearchbtn = (ImageButton) findViewById(R.id.searchBtn);
+
+
+
+
 
         /**
         * firebase database that points to the user node
@@ -72,11 +85,7 @@ public class AllUsersActivity extends AppCompatActivity {
         mUserDataRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
 
 
-        mToolbar = (Toolbar) findViewById(R.id.allsuserappbar);
 
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("All Users");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mUserlist = (RecyclerView) findViewById(R.id.userList);
        // mUserlist.setHasFixedSize(true);
@@ -122,6 +131,8 @@ public class AllUsersActivity extends AppCompatActivity {
 
     }
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -130,11 +141,65 @@ public class AllUsersActivity extends AppCompatActivity {
         // firebaseRecycleradapter) thattake the model class ,the custom single layout ,
         // the view holderclass and the database reference
         //as arguments
+        mSearchbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String searchText = mSearchText.getText().toString();
+                search(searchText);
+            }
+        });
+
+
+
+//        FirebaseRecyclerAdapter<Users, UsersViewHolder > firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Users, UsersViewHolder>(
+//                Users.class,    //modelclass
+//                R.layout.usersinglelayout, //layout design in the R file
+//                UsersViewHolder.class,    //viewHolder class
+//                mUserRef                  //firebase reference to user node.
+//
+//
+//        ) {
+//
+//            @Override
+//            protected void populateViewHolder(UsersViewHolder viewHolder, Users model, int position) {
+//                //set data for the view holders
+//                viewHolder.setName(model.getName());
+//                viewHolder.setStatus(model.getStatus());
+//                viewHolder.setThumb_image(model.getThumb_image(),getApplicationContext());
+//
+//                //get users position on when its clicked
+//                final String user_id = getRef(position).getKey();
+//
+//
+//                //onclick on the user lists
+//                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Intent profileIntent = new Intent(AllUsersActivity.this,UserProfile.class);
+//                        profileIntent.putExtra("user_id",user_id);
+//                        startActivity(profileIntent);
+//                    }
+//                });
+//            }
+//        };
+//        //attach the recycler view to the firebase adapter
+//        mUserlist.setAdapter(firebaseRecyclerAdapter);
+
+
+        mUserDataRef.child("online").setValue("true");
+
+    }
+
+    private void search(String searchText) {
+
+        Query searchQuery = mUserRef.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff");
+
         FirebaseRecyclerAdapter<Users, UsersViewHolder > firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Users, UsersViewHolder>(
                 Users.class,    //modelclass
                 R.layout.usersinglelayout, //layout design in the R file
                 UsersViewHolder.class,    //viewHolder class
-                mUserRef                  //firebase reference to user node.
+                searchQuery                  //firebase reference to user node.
 
 
         ) {
@@ -164,8 +229,6 @@ public class AllUsersActivity extends AppCompatActivity {
         //attach the recycler view to the firebase adapter
         mUserlist.setAdapter(firebaseRecyclerAdapter);
 
-
-        mUserDataRef.child("online").setValue("true");
 
     }
 

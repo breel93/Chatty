@@ -21,7 +21,7 @@
         android:ems="10"
         android:hint="@string/enter_email"
         android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:textColor="#000000"
         android:gravity="center"
         android:inputType="textEmailAddress"
         android:background="@drawable/white_text_background"/>
@@ -41,7 +41,7 @@
         android:gravity="center"
         android:hint="@string/enter_password"
         android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:textColor="#000000"
         android:background="@drawable/white_text_background"/>
 
     <Button

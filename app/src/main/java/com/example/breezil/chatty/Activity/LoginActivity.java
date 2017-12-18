@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //firebaseInstance
         mAuth = FirebaseAuth.getInstance();
-        //mUsertokenref = FirebaseDatabase.getInstance().getReference().child("Users");
+        mUsertokenref = FirebaseDatabase.getInstance().getReference().child("Users");
 
         mUserRef = FirebaseDatabase.getInstance().getReference().child("Users");
         //toolbar

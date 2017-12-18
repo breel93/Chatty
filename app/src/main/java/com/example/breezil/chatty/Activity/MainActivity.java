@@ -49,13 +49,12 @@ public class MainActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             mUserDataRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
-
         }
 
         mDataRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
+        checkUserExist();
         //Toolbar
-;
+
         //Tabs
         mViewPager = (ViewPager) findViewById(R.id.tabpager);
         myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        checkUserExist();
+
 
     }
 
@@ -123,6 +122,9 @@ public class MainActivity extends AppCompatActivity {
                         otherSettup.putExtra("user_id",user_id);
                         otherSettup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(otherSettup);
+                    }else {
+                        //online
+                        mUserDataRef.child("online").setValue("true");
                     }
                 }
 
@@ -142,9 +144,6 @@ public class MainActivity extends AppCompatActivity {
         //If currentuser is null the user is not signed In
         if(currentUser == null){
             sendToStart();
-        }else {
-            //online
-            mUserDataRef.child("online").setValue("true");
         }
 
     }
