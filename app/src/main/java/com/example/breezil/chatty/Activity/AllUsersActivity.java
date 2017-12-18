@@ -9,13 +9,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.breezil.chatty.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -38,6 +41,7 @@ public class AllUsersActivity extends AppCompatActivity {
 
     private EditText mSearchText;
     private ImageButton mSearchbtn;
+    private ProgressBar mSearchProg;
 
     //firebase ref
     private DatabaseReference mUserRef;
@@ -61,6 +65,7 @@ public class AllUsersActivity extends AppCompatActivity {
 
         mSearchText = (EditText) findViewById(R.id.searchText);
         mSearchbtn = (ImageButton) findViewById(R.id.searchBtn);
+        mSearchProg = (ProgressBar) findViewById(R.id.searchProgress);
 
 
 
@@ -146,45 +151,14 @@ public class AllUsersActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String searchText = mSearchText.getText().toString();
-                search(searchText);
+                if(!TextUtils.isEmpty(searchText)){
+                    search(searchText);
+                }else{
+                    Toast.makeText(AllUsersActivity.this,"Enter User Name",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
-
-
-
-//        FirebaseRecyclerAdapter<Users, UsersViewHolder > firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Users, UsersViewHolder>(
-//                Users.class,    //modelclass
-//                R.layout.usersinglelayout, //layout design in the R file
-//                UsersViewHolder.class,    //viewHolder class
-//                mUserRef                  //firebase reference to user node.
-//
-//
-//        ) {
-//
-//            @Override
-//            protected void populateViewHolder(UsersViewHolder viewHolder, Users model, int position) {
-//                //set data for the view holders
-//                viewHolder.setName(model.getName());
-//                viewHolder.setStatus(model.getStatus());
-//                viewHolder.setThumb_image(model.getThumb_image(),getApplicationContext());
-//
-//                //get users position on when its clicked
-//                final String user_id = getRef(position).getKey();
-//
-//
-//                //onclick on the user lists
-//                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent profileIntent = new Intent(AllUsersActivity.this,UserProfile.class);
-//                        profileIntent.putExtra("user_id",user_id);
-//                        startActivity(profileIntent);
-//                    }
-//                });
-//            }
-//        };
-//        //attach the recycler view to the firebase adapter
-//        mUserlist.setAdapter(firebaseRecyclerAdapter);
 
 
         mUserDataRef.child("online").setValue("true");
@@ -194,6 +168,7 @@ public class AllUsersActivity extends AppCompatActivity {
     private void search(String searchText) {
 
         Query searchQuery = mUserRef.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff");
+        //Query searchQuery = mUserRef.orderByChild("name").equalTo(searchText);
 
         FirebaseRecyclerAdapter<Users, UsersViewHolder > firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Users, UsersViewHolder>(
                 Users.class,    //modelclass
@@ -207,9 +182,11 @@ public class AllUsersActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(UsersViewHolder viewHolder, Users model, int position) {
                 //set data for the view holders
+
                 viewHolder.setName(model.getName());
                 viewHolder.setStatus(model.getStatus());
                 viewHolder.setThumb_image(model.getThumb_image(),getApplicationContext());
+
 
                 //get users position on when its clicked
                 final String user_id = getRef(position).getKey();
