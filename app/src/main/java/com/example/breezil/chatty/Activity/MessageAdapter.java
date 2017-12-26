@@ -1,11 +1,14 @@
 package com.example.breezil.chatty.Activity;
 
 import android.graphics.Color;
+import android.support.v7.widget.ActionBarOverlayLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -60,9 +63,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         public CircleImageView profImage;
         public TextView displayName;
         public ImageView messageImage;
+        public RelativeLayout messageLayout;
 
         public MessageViewHolder(View itemView) {
             super(itemView);
+
+            messageLayout = (RelativeLayout) itemView.findViewById(R.id.messageSingleLayout);
 
             messageText = (TextView) itemView.findViewById(R.id.messageSingleText);
             profImage = (CircleImageView) itemView.findViewById(R.id.messageSingleProfileImg);
@@ -84,6 +90,25 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         String from_user = c.getFrom();
         String message_type = c.getType();
+
+        if(from_user.equals(current_user_id)){
+
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(700,10,30,10);
+            holder.messageLayout.setLayoutParams(layoutParams);
+
+            holder.messageLayout.setBackgroundResource(R.drawable.user_message_layout);
+            holder.messageText.setTextColor(Color.BLACK);
+            holder.profImage.setVisibility(View.INVISIBLE);
+
+
+
+        }else {
+//            holder.messageLayout.setBackgroundResource(R.drawable.message_text_background);
+            holder.messageText.setTextColor(Color.WHITE);
+
+
+        }
 
         mUserDataBase = FirebaseDatabase.getInstance().getReference().child("Users").child(from_user);
 
