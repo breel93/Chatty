@@ -100,13 +100,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             holder.messageLayout.setBackgroundResource(R.drawable.user_message_layout);
             holder.messageText.setTextColor(Color.BLACK);
             holder.profImage.setVisibility(View.INVISIBLE);
+            holder.displayName.setText("ME");
 
 
 
         }else {
 //            holder.messageLayout.setBackgroundResource(R.drawable.message_text_background);
             holder.messageText.setTextColor(Color.WHITE);
-
 
         }
 
@@ -140,6 +140,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
             holder.messageImage.setMaxHeight(40);
             holder.messageImage.setMaxWidth(40);
+
+            //holder.messageImage.getLayoutParams().height = 40;
+            //holder.messageImage.requestLayout();
 
 
             Picasso.with(holder.profImage.getContext()).load(c.getMessage())
