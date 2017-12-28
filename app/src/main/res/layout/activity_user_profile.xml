@@ -47,27 +47,19 @@
         android:layout_below="@+id/userProfileDisplayname"
         android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:id="@+id/userprofilefriends"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/friends"
-        android:textSize="18sp"
-        android:textColor="@color/colorWhite"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/userprofilestatus"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:id="@+id/userprofilesendrequest"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textColor="@color/colorWhite"
         android:text="@string/send_friend_request"
+        android:textAllCaps="false"
         android:backgroundTint="@color/colorPrimary"
-        android:layout_alignTop="@+id/userprofilefriends"
+        android:layout_alignTop="@+id/userprofilestatus"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        android:layout_marginTop="85dp"
+        android:background="@drawable/btn_background"
+        />
 
     <Button
         android:id="@+id/declinefriendrequestbtn"
@@ -75,8 +67,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="DECLINE REQUEST"
-        android:backgroundTint="@color/colorWhite"/>
+        android:layout_marginBottom="5dp"
+        android:text="@string/decline"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed"
+        android:backgroundTint="@color/colorWhite"
+        android:background="@drawable/btn_background"/>
 
 
 </RelativeLayout>

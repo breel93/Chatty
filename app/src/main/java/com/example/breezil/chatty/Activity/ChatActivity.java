@@ -37,6 +37,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.ByteArrayOutputStream;
@@ -185,11 +188,23 @@ public class ChatActivity extends AppCompatActivity {
 
         mUserDisplayName.setText(chatUserName);
 
+        mUserImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profileIntent = new Intent(ChatActivity.this,UserProfile.class);
+                profileIntent.putExtra("user_id",chatUser);
+                startActivity(profileIntent);
+            }
+        });
+
+
+
+
         mRootRef.child("Users").child(chatUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String online = dataSnapshot.child("online").getValue().toString();
-                String image = dataSnapshot.child("thumb_image").getValue().toString();
+                final String image = dataSnapshot.child("thumb_image").getValue().toString();
                 if(online.equals("true")){
                    mLastSeen.setText("Online");
                 }else {
@@ -201,6 +216,19 @@ public class ChatActivity extends AppCompatActivity {
 
                     mLastSeen.setText(lastSeenTime);
                 }
+
+                Picasso.with(ChatActivity.this).load(image).networkPolicy(NetworkPolicy.OFFLINE)
+                        .placeholder(R.drawable.default_avatar).into(mUserImage, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError() {
+                        Picasso.with(ChatActivity.this).load(image).placeholder(R.drawable.default_avatar).into(mUserImage);
+                    }
+                });
             }
 
             @Override

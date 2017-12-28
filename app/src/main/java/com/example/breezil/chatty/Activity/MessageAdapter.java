@@ -141,8 +141,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             holder.messageImage.setMaxHeight(40);
             holder.messageImage.setMaxWidth(40);
 
-            //holder.messageImage.getLayoutParams().height = 40;
-            //holder.messageImage.requestLayout();
 
 
             Picasso.with(holder.profImage.getContext()).load(c.getMessage())

@@ -94,7 +94,7 @@ public class UserProfile extends AppCompatActivity {
         mUserProfileImage = (ImageView) findViewById(R.id.userProfileImage);
         mUserProfileName = (TextView) findViewById(R.id.userProfileDisplayname);
         mUserProfileStatus = (TextView) findViewById(R.id.userprofilestatus);
-        mUserProfileFriends = (TextView) findViewById(R.id.userprofilefriends);
+        //mUserProfileFriends = (TextView) findViewById(R.id.userprofilefriends);
 
 
         mUserProfilesendRequest = (Button) findViewById(R.id.userprofilesendrequest);

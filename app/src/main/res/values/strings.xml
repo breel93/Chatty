@@ -32,4 +32,5 @@
     <string name="display_name__">Display Name</string>
     <string name="cancel_friend_request">Cancel Friend Request</string>
     <string name="type_message">Type Message ...</string>
+    <string name="decline">Decline</string>
 </resources>
