@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,7 +55,8 @@ public class SettupActivity extends AppCompatActivity {
     //Layout
     private TextView userName, userStatus;
     private CircleImageView profImage;
-    private Button editStatusbtn, changeDisplayImagebtn;
+    private Button editStatusbtn;
+    private ImageView mChangeImageIcon;
 
     private static final int GALLERY_REQUEST = 1;
 
@@ -87,8 +89,10 @@ public class SettupActivity extends AppCompatActivity {
         userStatus = (TextView) findViewById(R.id.settingHeyMessge);
         profImage = (CircleImageView) findViewById(R.id.settingImage);
 
+        mChangeImageIcon = (ImageView) findViewById(R.id.changeImageIcon);
+
         editStatusbtn = (Button) findViewById(R.id.settingEditStatus);
-        changeDisplayImagebtn = (Button) findViewById(R.id.settingsChangeProfImage);
+        //changeDisplayImagebtn = (Button) findViewById(R.id.settingsChangeProfImage);
 
 
         mProgress = new ProgressDialog(this);
@@ -156,7 +160,7 @@ public class SettupActivity extends AppCompatActivity {
         });
 
         //Intent to Choose profile image pic
-        changeDisplayImagebtn.setOnClickListener(new View.OnClickListener() {
+        mChangeImageIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
