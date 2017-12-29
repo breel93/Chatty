@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/back_image_three"
     android:textAlignment="center"
     tools:context="com.example.breezil.chatty.Activity.SettupActivity">
 
@@ -16,7 +16,8 @@
         android:src="@drawable/default_avatar"
         android:layout_marginBottom="12dp"
         android:layout_above="@+id/settingDisplayName"
-        android:layout_alignStart="@+id/settingEditStatus" />
+        android:layout_alignStart="@+id/settingEditStatus"
+        android:elevation="10dp"/>
 
     <TextView
         android:id="@+id/settingDisplayName"
@@ -45,9 +46,12 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/settingsChangeProfImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="110dp"
         android:backgroundTint="@color/colorAccent"
+        android:background="@drawable/btn_background"
+        android:layout_alignParentBottom="true"
         android:text="@string/edit_status"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="@color/colorWhite" />
 
@@ -55,7 +59,9 @@
         android:id="@+id/settingsChangeProfImage"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:textAllCaps="false"
+        android:background="@drawable/btn_background"
+        android:layout_marginBottom="55dp"
         android:backgroundTint="@color/colorWhite"
         android:text="@string/change_profile_image"
         android:textColor="@color/colorPrimary"

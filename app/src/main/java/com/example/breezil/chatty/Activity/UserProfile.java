@@ -36,7 +36,7 @@ public class UserProfile extends AppCompatActivity {
 
     //fields
     private ImageView mUserProfileImage;
-    private TextView mUserProfileName,mUserProfileStatus,mUserProfileFriends;
+    private TextView mUserProfileName,mUserProfileStatus;//mUserProfileFriends
     private Button mUserProfilesendRequest, mUserProfiledeclineRequest;
 
     private ProgressDialog mProgress;
