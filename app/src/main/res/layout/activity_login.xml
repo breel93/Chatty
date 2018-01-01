@@ -24,7 +24,8 @@
         android:textColor="#000000"
         android:gravity="center"
         android:inputType="textEmailAddress"
-        android:background="@drawable/white_text_background"/>
+        android:background="@drawable/white_text_background"
+        />
 
     <EditText
         android:id="@+id/loginPasswordtext"
@@ -54,6 +55,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
         android:text="@string/logintext"
+        android:fontFamily="casual"
         android:background="@drawable/white_text_background"
         android:backgroundTint="@color/colorWhite"
         android:textColor="@color/colorPrimary"/>

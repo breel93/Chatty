@@ -56,7 +56,8 @@
             android:name=".Activity.ChatActivity"
             android:parentActivityName=".Activity.MainActivity" />
         <activity android:name=".Activity.SettingsActivity" />
-        <activity android:name=".Activity.OtherSettup"></activity>
+        <activity android:name=".Activity.OtherSettup" />
+        <activity android:name=".Activity.ShowImageFull"></activity>
     </application>
 
 </manifest>

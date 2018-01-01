@@ -6,7 +6,9 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.LruCache;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -175,6 +177,20 @@ public class SettupActivity extends AppCompatActivity {
 //                        .setGuidelines(CropImageView.Guidelines.ON)
 //                        .start(SettupActivity.this);
 
+            }
+        });
+
+        profImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent imgTransition = new Intent(SettupActivity.this,ShowImageFull.class);
+
+                ActivityOptionsCompat options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation(SettupActivity.this,
+                                profImage,
+                                ViewCompat.getTransitionName(profImage));
+
+                startActivity(imgTransition,options.toBundle());
             }
         });
 
