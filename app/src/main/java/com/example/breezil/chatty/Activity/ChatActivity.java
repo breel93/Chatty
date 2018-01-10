@@ -199,7 +199,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-
+//
         mRootRef.child("Users").child(chatUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
