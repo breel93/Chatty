@@ -1,8 +1,11 @@
 package com.example.breezil.chatty.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.icu.text.DateFormat;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -138,6 +141,19 @@ public class UserProfile extends AppCompatActivity {
                     @Override
                     public void onError() {
                         Picasso.with(UserProfile.this).load(Image).placeholder(R.drawable.default_avatar).into(mUserProfileImage);
+                    }
+                });
+
+                mUserProfileImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent viewImageIntent = new Intent(UserProfile.this,ShowImageFull.class);
+                        viewImageIntent.putExtra("user_id",user_id);
+                        ActivityOptionsCompat options = ActivityOptionsCompat.
+                                makeSceneTransitionAnimation(UserProfile.this,
+                                        mUserProfileImage,
+                                        ViewCompat.getTransitionName(mUserProfileImage));
+                        startActivity(viewImageIntent,options.toBundle());
                     }
                 });
 

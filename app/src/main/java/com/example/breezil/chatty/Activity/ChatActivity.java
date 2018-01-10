@@ -3,8 +3,6 @@ package com.example.breezil.chatty.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.icu.text.DateFormat;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -40,18 +38,13 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-import com.theartofdev.edmodo.cropper.CropImage;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import id.zelory.compressor.Compressor;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -221,7 +214,6 @@ public class ChatActivity extends AppCompatActivity {
                         .placeholder(R.drawable.default_avatar).into(mUserImage, new Callback() {
                     @Override
                     public void onSuccess() {
-
                     }
 
                     @Override

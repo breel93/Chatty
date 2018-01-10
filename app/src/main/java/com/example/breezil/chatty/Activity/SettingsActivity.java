@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.example.breezil.chatty.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Set;
-
 public class SettingsActivity extends AppCompatActivity {
 
     private TextView mLogout;

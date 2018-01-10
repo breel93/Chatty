@@ -23,7 +23,8 @@
             android:layout_centerHorizontal="true"
             app:srcCompat="@drawable/default_avatar"
             android:padding="5dp"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:transitionName="imgtransition"/>
     </android.support.v7.widget.CardView>
 
 

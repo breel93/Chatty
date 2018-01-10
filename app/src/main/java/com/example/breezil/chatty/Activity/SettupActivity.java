@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.LruCache;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,19 +36,15 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import id.zelory.compressor.Compressor;
-
-import static android.R.attr.bitmap;
 
 public class SettupActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseref;
@@ -101,7 +96,7 @@ public class SettupActivity extends AppCompatActivity {
 
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        @SuppressWarnings("ConstantConditions") String Uid = mCurrentUser.getUid();
+        @SuppressWarnings("ConstantConditions") final String Uid = mCurrentUser.getUid();
         mDatabaseref = FirebaseDatabase.getInstance().getReference().child("Users").child(Uid);
         mDatabaseref.keepSynced(true);
 
@@ -184,6 +179,8 @@ public class SettupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent imgTransition = new Intent(SettupActivity.this,ShowImageFull.class);
+
+                imgTransition.putExtra("user_id",Uid);
 
                 ActivityOptionsCompat options = ActivityOptionsCompat.
                         makeSceneTransitionAnimation(SettupActivity.this,

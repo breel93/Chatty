@@ -7,13 +7,17 @@
     tools:context="com.example.breezil.chatty.Activity.ShowImageFull"
     android:background="@drawable/back_image_seven">
 
+    <include layout="@layout/chatty_app_bar" android:id="@+id/fullImageBar"/>
+
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:src="@drawable/default_avatar"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/fullImage"
         android:transitionName="imgtransition"
         />
