@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.breezil.chatty.R;
@@ -26,6 +27,7 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText regEmailtext,regPassword,regUsername;
+    private TextView mSignIn;
     private Button regRegBtn;
     private ProgressDialog progDialog;
 
@@ -49,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
         regPassword = (EditText)findViewById(R.id.regPasswordtext);
         regUsername = (EditText) findViewById(R.id.regUsernametext);
         regRegBtn = (Button) findViewById(R.id.regRegBtn);
+        mSignIn = (TextView) findViewById(R.id.gotoSignInText);
         progDialog = new ProgressDialog(this);
 
         //create user account method
@@ -63,6 +66,13 @@ public class RegisterActivity extends AppCompatActivity {
                 registerUser(emailtext,passwdtext,userNametext);
 
 
+            }
+        });
+
+        mSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
             }
         });
     }

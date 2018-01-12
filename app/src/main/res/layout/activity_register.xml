@@ -19,9 +19,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:ems="10"
-        android:gravity="center"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:paddingStart="20dp"
+        android:textColorHint="#696969"
+        android:textColor="#000000"
         android:hint="@string/username"
         android:inputType="textPersonName"
         android:background="@drawable/white_text_background"
@@ -38,12 +38,12 @@
         android:layout_marginBottom="18dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:gravity="center"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:textColorHint="#696969"
+        android:textColor="#000000"
         android:ems="10"
         android:hint="@string/enter_email"
         android:inputType="textEmailAddress"
+        android:paddingStart="20dp"
         android:background="@drawable/white_text_background"/>
 
     <EditText
@@ -55,11 +55,11 @@
         android:layout_marginBottom="18dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:gravity="center"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:textColorHint="#696969"
+        android:textColor="#000000"
         android:ems="10"
         android:hint="@string/enter_password"
+        android:paddingStart="20dp"
         android:inputType="textPassword"
         android:background="@drawable/white_text_background"/>
 
@@ -84,11 +84,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/regUsernametext"
-        android:layout_below="@+id/regToolBar"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="130dp"
         android:text="@string/create_a_new_account"
         android:textSize="30dp"
+        android:fontFamily="cursive"
         android:textColor="@color/colorPrimaryDark"
         />
+
+
+    <TextView
+        android:id="@+id/gotoSignInText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="cursive"
+        android:text="@string/sign_in"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"/>
 </RelativeLayout>

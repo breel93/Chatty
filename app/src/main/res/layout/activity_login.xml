@@ -9,23 +9,28 @@
     >
 
 
+
+
     <EditText
-        android:id="@+id/loginEmailtext"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="150dp"
-        android:ems="10"
-        android:hint="@string/enter_email"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:inputType="textEmailAddress"
-        android:background="@drawable/white_text_background"
-        />
+            android:id="@+id/loginEmailtext"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="250dp"
+            android:ems="10"
+            android:hint="@string/enter_email"
+            android:textColorHint="#696969"
+            android:textColor="#000000"
+            android:paddingStart="20dp"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/white_text_background"
+            />
+
+
+
 
     <EditText
         android:id="@+id/loginPasswordtext"
@@ -39,9 +44,9 @@
         android:layout_marginRight="10dp"
         android:inputType="textPassword"
         android:layout_marginTop="20dp"
-        android:gravity="center"
+        android:paddingStart="20dp"
         android:hint="@string/enter_password"
-        android:textColorHint="@color/colorWhite"
+        android:textColorHint="#696969"
         android:textColor="#000000"
         android:background="@drawable/white_text_background"/>
 
@@ -55,7 +60,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
         android:text="@string/logintext"
-        android:fontFamily="casual"
+        android:fontFamily="cursive"
         android:background="@drawable/white_text_background"
         android:backgroundTint="@color/colorWhite"
         android:textColor="@color/colorPrimary"/>
@@ -87,8 +92,9 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="200dp"
         android:text="@string/sign_in"
+        android:fontFamily="cursive"
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:layout_alignStart="@+id/loginPasswordtext" />
@@ -99,7 +105,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="cursive"
         android:text="@string/need_new_account_sign_up_here"
         android:textColor="@color/colorPrimary"
         android:textSize="20dp"/>
