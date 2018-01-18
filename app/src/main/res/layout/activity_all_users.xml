@@ -6,48 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.breezil.chatty.Activity.AllUsersActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/searchLinear"
-        android:background="@color/colorPrimary"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-        <EditText
-            android:layout_width="350dp"
-            android:layout_height="match_parent"
-            android:id="@+id/searchText"
-            android:hint="Search..."
-            android:gravity="center"
-            android:textColor="@color/colorWhite"
-            android:textColorHint="@color/colorWhite"
-            android:backgroundTint="@color/colorPrimary"
-            />
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@id/searchText"
-            android:src="@mipmap/ic_search1"
-            android:background="@color/colorPrimary"
-            android:id="@+id/searchBtn"
-            android:layout_marginEnd="1dp"
-
-            />
-        <ProgressBar
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@id/searchText"
-            android:layout_marginEnd="1dp"
-            android:id="@+id/searchProgress"
-            android:visibility="invisible"/>
+    <include layout="@layout/chatty_app_bar" android:id="@+id/searchBar"/>
 
 
-    </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/searchLinear"
+        android:layout_below="@+id/searchBar"
         android:id="@+id/userList">
 
     </android.support.v7.widget.RecyclerView>

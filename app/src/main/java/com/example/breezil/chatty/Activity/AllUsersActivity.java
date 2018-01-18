@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,9 +40,14 @@ public class AllUsersActivity extends AppCompatActivity {
 
     private RecyclerView mUserlist;
 
-    private EditText mSearchText;
-    private ImageButton mSearchbtn;
-    private ProgressBar mSearchProg;
+    //searchBar
+    private Toolbar mSearchBar;
+    private EditText mSearcTextbar;
+    private ImageButton mSearchImageBtnBar;
+
+
+
+
 
     //firebase ref
     private DatabaseReference mUserRef;
@@ -61,9 +69,19 @@ public class AllUsersActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        mSearchText = (EditText) findViewById(R.id.searchText);
-        mSearchbtn = (ImageButton) findViewById(R.id.searchBtn);
-        mSearchProg = (ProgressBar) findViewById(R.id.searchProgress);
+
+        mSearchBar = (Toolbar) findViewById(R.id.searchBar);
+
+        setSupportActionBar(mSearchBar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View actionbarView = inflater.inflate(R.layout.search_bar,null);
+        actionBar.setCustomView(actionbarView);
+
+        mSearcTextbar = (EditText) findViewById(R.id.searchTextBar);
+        mSearchImageBtnBar = (ImageButton) findViewById(R.id.searchBtnBar);
 
 
 
@@ -144,17 +162,17 @@ public class AllUsersActivity extends AppCompatActivity {
         // firebaseRecycleradapter) thattake the model class ,the custom single layout ,
         // the view holderclass and the database reference
         //as arguments
-        mSearchbtn.setOnClickListener(new View.OnClickListener() {
+
+
+        mSearchImageBtnBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String searchText = mSearchText.getText().toString();
+                String searchText = mSearcTextbar.getText().toString();
                 if(!TextUtils.isEmpty(searchText)){
                     search(searchText);
                 }else{
                     Toast.makeText(AllUsersActivity.this,"Enter User Name",Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
