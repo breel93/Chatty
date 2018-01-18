@@ -8,6 +8,102 @@
 
     <include layout="@layout/chatty_app_bar" android:id="@+id/settingBar"/>
 
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settingBar"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:id="@+id/userInfoCard">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/default_avatar"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/userSettingsImage"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="100dp"
+            android:textSize="20dp"
+            android:id="@+id/userSettingsName"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="100dp"
+            android:textSize="15dp"
+            android:ellipsize="end"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingRight="100dp"
+            android:id="@+id/userSettingStatus"/>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/userInfoCard"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account Settings"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2F4F4F"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="50dp"
+            android:paddingRight="100dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat Settings"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="20dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#2F4F4F"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginBottom="10dp"
+            android:paddingRight="100dp"/>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
