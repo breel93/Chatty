@@ -149,10 +149,19 @@ public class SettupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String status_value = userStatus.getText().toString().trim();
-                Intent statusIntent = new Intent(SettupActivity.this, StatusActivity.class);
-                //Intent to send status text to status activity
-                statusIntent.putExtra("statusValue", status_value);
-                startActivity(statusIntent);
+                String user_name = userName.getText().toString().trim();
+
+
+                Bundle args = new Bundle();
+                args.putString("statusValue", status_value);
+                args.putString("user_name", user_name);
+
+                StatusDialog dialog = new StatusDialog();
+                dialog.setArguments(args);
+                dialog.show(getFragmentManager(),"Dialog");
+
+
+
             }
         });
 
