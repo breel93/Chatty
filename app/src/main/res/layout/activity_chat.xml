@@ -52,7 +52,7 @@
             android:layout_width="290sp"
             android:layout_height="match_parent"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:hint="@string/type_message"
             android:layout_weight="8"/>
 
