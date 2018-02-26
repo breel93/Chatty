@@ -190,6 +190,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void sendToStart() {
         FirebaseAuth.getInstance().signOut();
         Intent startIntent = new Intent(SettingsActivity.this,LoginActivity.class);
+        startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(startIntent);
         finish();
     }
