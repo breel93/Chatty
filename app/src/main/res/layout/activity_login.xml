@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.breezil.chatty.Activity.LoginActivity"
     android:background="@drawable/chat_image_one"
+    android:alpha=".8"
     >
 
 
