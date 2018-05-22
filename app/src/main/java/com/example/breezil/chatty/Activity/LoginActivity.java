@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         animationDrawable.setExitFadeDuration(4500);
         animationDrawable.start();
 
-        //firebaseInstance
+        //firebaseInstance.
         mAuth = FirebaseAuth.getInstance();
         mUsertokenref = FirebaseDatabase.getInstance().getReference().child("Users");
 
