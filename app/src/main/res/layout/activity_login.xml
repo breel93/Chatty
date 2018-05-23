@@ -23,8 +23,11 @@
         android:background="@drawable/white_text_background"
         android:ems="10"
         android:hint="@string/enter_email"
+        android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+        android:drawablePadding="20dp"
         android:inputType="textEmailAddress"
         android:paddingStart="20dp"
+
         android:textColor="#000000"
         android:textColorHint="#000000" />
 
@@ -45,9 +48,12 @@
         android:layout_marginTop="20dp"
         android:paddingStart="20dp"
         android:hint="@string/enter_password"
+        android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+        android:drawablePadding="20dp"
         android:textColorHint="#000000"
         android:textColor="#000000"
-        android:background="@drawable/white_text_background"/>
+        android:background="@drawable/white_text_background"
+        />
 
     <Button
         android:id="@+id/loginLoginBtn"
@@ -59,8 +65,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:text="@string/logintext"
-        android:fontFamily="cursive"
-        android:background="@drawable/white_text_background"
+        android:background="@drawable/btn_background"
         android:backgroundTint="@color/colorWhite"
         android:textColor="@color/colorPrimary"/>
 
@@ -93,8 +98,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:text="@string/sign_in"
-        android:fontFamily="cursive"
-        android:textColor="@color/colorPrimary"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/colorWhite"
         android:textSize="30dp"
         android:layout_alignStart="@+id/loginPasswordtext" />
 
