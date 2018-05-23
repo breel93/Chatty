@@ -108,7 +108,9 @@ public class LoginActivity extends AppCompatActivity {
         gotoSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                Intent gotoSignUpIntent = new Intent(LoginActivity.this,RegisterActivity.class);
+                gotoSignUpIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(gotoSignUpIntent);
             }
         });
 

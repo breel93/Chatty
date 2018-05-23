@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
         regUsername = (EditText) findViewById(R.id.regUsernametext);
         regRegBtn = (Button) findViewById(R.id.regRegBtn);
         mSignIn = (TextView) findViewById(R.id.gotoSignInText);
-        mRegisterProgress = (ProgressBar) findViewById(R.id.LoginProgress);
+        mRegisterProgress = (ProgressBar) findViewById(R.id.registerProgress);
         //create user account method
         regRegBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +85,9 @@ public class RegisterActivity extends AppCompatActivity {
         mSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                Intent signInIntent = new Intent(RegisterActivity.this,LoginActivity.class);
+                signInIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(signInIntent);
             }
         });
     }
@@ -138,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
                         mdataref.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                progDialog.dismiss();
+                                mRegisterProgress.setVisibility(View.INVISIBLE);
                                 Intent mainIntent = new Intent(RegisterActivity.this,MainActivity.class);
                                 mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(mainIntent);
