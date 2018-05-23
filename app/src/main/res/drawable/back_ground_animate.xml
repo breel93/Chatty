@@ -8,4 +8,5 @@
     <item android:drawable="@drawable/third_layer"
         android:duration="4500" />
 
+
 </animation-list>
