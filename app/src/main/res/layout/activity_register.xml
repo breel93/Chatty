@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.breezil.chatty.Activity.RegisterActivity"
-    android:background="@drawable/back_ground_animate">
+    android:background="@drawable/back_ground_animate"
+    android:id="@+id/myRegisterBackground">
 
 
     <EditText
@@ -111,4 +112,12 @@
         android:text="@string/sign_in"
         android:textColor="@color/colorWhite"
         android:textSize="20dp"/>
+    <ProgressBar
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/registerProgress"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="170dp"
+        android:layout_below="@id/regPasswordtext"
+        android:visibility="invisible"/>
 </RelativeLayout>

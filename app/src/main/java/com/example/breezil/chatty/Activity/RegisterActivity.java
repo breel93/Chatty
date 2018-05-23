@@ -3,6 +3,7 @@ package com.example.breezil.chatty.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +33,9 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView mSignIn;
     private Button regRegBtn;
     private ProgressDialog progDialog;
+    RelativeLayout mBackground;
+    AnimationDrawable animationDrawable;
+    private ProgressBar mRegisterProgress;
 
 
     //Firebase!!!
@@ -40,6 +46,14 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
+        mBackground = (RelativeLayout) findViewById(R.id.myRegisterBackground);
+        animationDrawable = (AnimationDrawable) mBackground.getBackground();
+        animationDrawable.setEnterFadeDuration(4500);
+        animationDrawable.setExitFadeDuration(4500);
+        animationDrawable.start();
+
         //firebase Auth Instance
         mAuth = FirebaseAuth.getInstance();
 
@@ -52,8 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
         regUsername = (EditText) findViewById(R.id.regUsernametext);
         regRegBtn = (Button) findViewById(R.id.regRegBtn);
         mSignIn = (TextView) findViewById(R.id.gotoSignInText);
-        progDialog = new ProgressDialog(this);
-
+        mRegisterProgress = (ProgressBar) findViewById(R.id.LoginProgress);
         //create user account method
         regRegBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +98,8 @@ public class RegisterActivity extends AppCompatActivity {
          */
         if(!TextUtils.isEmpty(emailtext) || !TextUtils.isEmpty(passwdtext)|| !TextUtils.isEmpty(userNametext)){
             //call the firebase account create
-            progDialog.setMessage("Creating Account...");
-            progDialog.setTitle("Please wait");
-            progDialog.setCanceledOnTouchOutside(false);
-            progDialog.show();
+            regRegBtn.setVisibility(View.INVISIBLE);
+            mRegisterProgress.setVisibility(View.VISIBLE);
             /*
             * here createuser with email and password is called
              */
@@ -98,6 +109,7 @@ public class RegisterActivity extends AppCompatActivity {
                     //if user is successfully created, we create a user database
                     //that stores other informations of the user like username , profile image , status
                     if(task.isSuccessful()){
+                        mRegisterProgress.setVisibility(View.INVISIBLE);
 
                         //get current user inorder to use it reference storing the user informations
                         FirebaseUser current_user = FirebaseAuth.getInstance().getCurrentUser();
@@ -137,7 +149,8 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                     }else{
-                        progDialog.dismiss();
+                        mRegisterProgress.setVisibility(View.INVISIBLE);
+                        regRegBtn.setVisibility(View.VISIBLE);
                         //user account creation error
                         Toast.makeText(RegisterActivity.this,"Registration Error pls try again..",Toast.LENGTH_LONG).show();
                     }
