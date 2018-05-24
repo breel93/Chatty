@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.breezil.chatty.Activity.ChatActivity"
-    android:background="@drawable/chat_image_one"
+    android:background="@drawable/chatbackground"
     >
 
     <include layout="@layout/chatty_app_bar" android:id="@+id/userChatbar"/>
