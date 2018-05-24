@@ -84,6 +84,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/btn_background"
+        android:elevation="8dp"
         />
 
     <TextView

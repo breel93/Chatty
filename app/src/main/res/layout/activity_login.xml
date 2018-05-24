@@ -67,7 +67,9 @@
         android:text="@string/logintext"
         android:background="@drawable/btn_background"
         android:backgroundTint="@color/colorWhite"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorPrimary"
+        android:elevation="8dp"
+        />
 
     <com.google.android.gms.common.SignInButton
         android:layout_width="wrap_content"
@@ -107,7 +109,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="5dp"
         android:text="@string/sign_in"
         android:fontFamily="sans-serif"
         android:textColor="@color/colorWhite"
