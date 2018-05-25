@@ -105,7 +105,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
 
         }else {
-//            holder.messageLayout.setBackgroundResource(R.drawable.message_text_background);
+      //      holder.messageLayout.setBackgroundResource(R.drawable.message_text_background);
             holder.messageText.setTextColor(Color.WHITE);
 
         }
