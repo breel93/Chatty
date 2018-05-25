@@ -1,10 +1,12 @@
 package com.example.breezil.chatty.Activity;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.breezil.chatty.R;
@@ -48,15 +50,18 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         String from_user = c.getFrom();
         String message_type = c.getType();
 
+        if (from_user != null){
 
-        if (from_user.equals(current_user_id) && from_user != null) {
-            //if sent by the current user
-            return VIEW_TYPE_MESSAGE_SENT;
-        } else {
-            //message received from a friend
-            return VIEW_TYPE_MESSAGE_RECEIVED;
+            if (from_user.equals(current_user_id) ) {
+                //if sent by the current user
+                return VIEW_TYPE_MESSAGE_SENT;
+            } else {
+                //message received from a friend
+                return VIEW_TYPE_MESSAGE_RECEIVED;
+            }
         }
 
+        return position;
 
     }
 
@@ -99,29 +104,46 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
     private class SentMessageHolder extends RecyclerView.ViewHolder {
         TextView messageText, timeText;
+        ImageView imageMessageBody;
 
         SentMessageHolder(View itemView) {
             super(itemView);
             messageText = (TextView) itemView.findViewById(R.id.message_body);
             timeText = (TextView) itemView.findViewById(R.id.text_message_time);
+            imageMessageBody = (ImageView) itemView.findViewById(R.id.text_body_image);
         }
         void bind(Messages message){
-            messageText.setText(message.getMessage());
+            // messageText.setText(message.getMessage());
+            String message_type = message.getType();
+
+            if(message_type.equals("text")){
+                messageText.setText(message.getMessage());
+                imageMessageBody.setVisibility(View.INVISIBLE);
+            }else {
+                messageText.setVisibility(View.INVISIBLE);
+                imageMessageBody.setMaxHeight(50);
+                imageMessageBody.setMaxWidth(50);
+
+                Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
+                        .placeholder(R.drawable.default_avatar).into(imageMessageBody);
+            }
 
         }
     }
     private class ReceivedMessageHolder extends RecyclerView.ViewHolder{
         TextView messageText, timeText, nameText;
         CircleImageView profImage;
+        ImageView imageMessageBody;
         ReceivedMessageHolder(View itemView) {
             super(itemView);
             messageText = (TextView) itemView.findViewById(R.id.message_body);
             timeText = (TextView) itemView.findViewById(R.id.text_message_time);
             nameText = (TextView) itemView.findViewById(R.id.message_username);
             profImage = (CircleImageView) itemView.findViewById(R.id.message_profile_Image);
+            imageMessageBody = (ImageView) itemView.findViewById(R.id.text_body_image);
         }
         void bind(Messages message){
-            messageText.setText(message.getMessage());
+            //messageText.setText(message.getMessage());
 
             String from_user = message.getFrom();
 
@@ -143,6 +165,20 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
                 }
             });
+
+            String message_type = message.getType();
+
+            if(message_type.equals("text")){
+                messageText.setText(message.getMessage());
+                imageMessageBody.setVisibility(View.INVISIBLE);
+            }else {
+                messageText.setVisibility(View.INVISIBLE);
+                imageMessageBody.setMaxHeight(50);
+                imageMessageBody.setMaxWidth(50);
+
+                Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
+                        .placeholder(R.drawable.default_avatar).into(imageMessageBody);
+            }
         }
 
     }

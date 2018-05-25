@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -155,8 +156,9 @@ public class ChatActivity extends AppCompatActivity {
 
         mLayout =new LinearLayoutManager(this);
 
-        messagesList.setHasFixedSize(true);
+        //messagesList.setHasFixedSize(true);
         messagesList.setLayoutManager(mLayout);
+        messagesList.setItemAnimator(new DefaultItemAnimator());
 
 
         //messagesList.setAdapter(messageAdapter);
