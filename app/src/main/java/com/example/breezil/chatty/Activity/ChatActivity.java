@@ -84,6 +84,7 @@ public class ChatActivity extends AppCompatActivity {
 
     //variable of the Message adapter class
     private MessageAdapter messageAdapter;
+    private MessageListAdapter messageListAdapter;
 
     //the number of message to load on the first instance => TOTAL_ITEMS_TO_LOAD
     private static final int TOTAL_ITEMS_TO_LOAD = 10;
@@ -144,7 +145,8 @@ public class ChatActivity extends AppCompatActivity {
 
 
        //declear the message adapter object as a variable that takes an arraylist obj(messlist) arg
-        messageAdapter = new MessageAdapter(messList);
+        //messageAdapter = new MessageAdapter(messList);
+        messageListAdapter = new MessageListAdapter(messList);
 
         //recycler List
         messagesList = (RecyclerView) findViewById(R.id.messageList);
@@ -156,8 +158,10 @@ public class ChatActivity extends AppCompatActivity {
         messagesList.setHasFixedSize(true);
         messagesList.setLayoutManager(mLayout);
 
-        messagesList.setAdapter(messageAdapter);
-        
+
+        //messagesList.setAdapter(messageAdapter);
+        messagesList.setAdapter(messageListAdapter);
+
         //method to load the message
         loadMessages();
 
@@ -387,7 +391,8 @@ public class ChatActivity extends AppCompatActivity {
                 }
 
                 messList.add(mess);
-                messageAdapter.notifyDataSetChanged();
+//                messageAdapter.notifyDataSetChanged();
+                messageListAdapter.notifyDataSetChanged();
 
                 messagesList.scrollToPosition(messList.size()-1);
 
@@ -443,7 +448,8 @@ public class ChatActivity extends AppCompatActivity {
                 }
 
 
-                messageAdapter.notifyDataSetChanged();
+//                messageAdapter.notifyDataSetChanged();
+                messageListAdapter.notifyDataSetChanged();
 
                 refreshLayout.setRefreshing(false);
 

@@ -9,8 +9,13 @@ import android.widget.TextView;
 
 import com.example.breezil.chatty.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.okhttp.internal.Util;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -23,9 +28,13 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
     private List<Messages> messagesList;
     private FirebaseAuth mAuth;
-
     private DatabaseReference mUserDataBase;
 
+
+    public MessageListAdapter(List<Messages> messagesList){
+
+        this.messagesList = messagesList;
+    }
     @Override
     public int getItemViewType(int position) {
         mAuth = FirebaseAuth.getInstance();
@@ -39,13 +48,16 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         String from_user = c.getFrom();
         String message_type = c.getType();
 
-        if(from_user.equals(current_user_id)){
+
+        if (from_user.equals(current_user_id) && from_user != null) {
             //if sent by the current user
-            return  VIEW_TYPE_MESSAGE_SENT;
-        }else {
+            return VIEW_TYPE_MESSAGE_SENT;
+        } else {
             //message received from a friend
             return VIEW_TYPE_MESSAGE_RECEIVED;
         }
+
+
     }
 
     @Override
@@ -111,6 +123,27 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         void bind(Messages message){
             messageText.setText(message.getMessage());
 
+            String from_user = message.getFrom();
+
+            mUserDataBase = FirebaseDatabase.getInstance().getReference().child("Users").child(from_user);
+
+            mUserDataBase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String name = dataSnapshot.child("name").getValue().toString();
+                    String image = dataSnapshot.child("thumb_image").getValue().toString();
+
+                    nameText.setText(name);
+                    Picasso.with(profImage.getContext()).load(image)
+                            .placeholder(R.drawable.default_avatar).into(profImage);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
         }
+
     }
 }
