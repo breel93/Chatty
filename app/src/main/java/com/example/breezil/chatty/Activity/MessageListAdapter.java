@@ -88,7 +88,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
     private class SentMessageHolder extends RecyclerView.ViewHolder {
         TextView messageText, timeText;
 
-        public SentMessageHolder(View itemView) {
+        SentMessageHolder(View itemView) {
             super(itemView);
             messageText = (TextView) itemView.findViewById(R.id.message_body);
             timeText = (TextView) itemView.findViewById(R.id.text_message_time);
@@ -101,7 +101,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
     private class ReceivedMessageHolder extends RecyclerView.ViewHolder{
         TextView messageText, timeText, nameText;
         CircleImageView profImage;
-        public ReceivedMessageHolder(View itemView) {
+        ReceivedMessageHolder(View itemView) {
             super(itemView);
             messageText = (TextView) itemView.findViewById(R.id.message_body);
             timeText = (TextView) itemView.findViewById(R.id.text_message_time);
