@@ -153,7 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
                     }else{
                         mRegisterProgress.setVisibility(View.INVISIBLE);
                         regRegBtn.setVisibility(View.VISIBLE);
-                        //user account creation error
+                        //user account creation error ..
                         Toast.makeText(RegisterActivity.this,"Registration Error pls try again..",Toast.LENGTH_LONG).show();
                     }
                 }
