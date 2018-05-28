@@ -18,6 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/display_name"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingRight="100dp"
         android:textSize="25sp"
         android:id="@+id/chatUserDisplayname"
         android:textColor="@color/colorWhite"/>
