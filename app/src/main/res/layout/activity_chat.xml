@@ -16,11 +16,13 @@
         android:layout_above="@+id/linearLayout"
         android:layout_below="@+id/userChatbar"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
         android:id="@+id/swipeMessage">
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/messageList"
+            android:layout_marginBottom="20dp"
             >
 
         </android.support.v7.widget.RecyclerView>

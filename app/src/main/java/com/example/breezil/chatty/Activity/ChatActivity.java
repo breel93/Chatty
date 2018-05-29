@@ -156,7 +156,7 @@ public class ChatActivity extends AppCompatActivity {
 
         mLayout =new LinearLayoutManager(this);
 
-        //messagesList.setHasFixedSize(true);
+        messagesList.setHasFixedSize(true);
         messagesList.setLayoutManager(mLayout);
         messagesList.setItemAnimator(new DefaultItemAnimator());
 

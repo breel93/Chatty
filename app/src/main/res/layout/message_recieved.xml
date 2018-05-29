@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="5dp">
+    android:layout_marginTop="8dp">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/message_profile_Image"
         android:layout_width="32dp"
@@ -48,13 +48,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/message_body" />
 
     <ImageView
-        android:layout_width="220dp"
-        android:layout_height="220dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:padding="5dp"
         android:id="@+id/text_body_image"
         app:layout_constraintLeft_toRightOf="@+id/message_profile_Image"
-        android:background="@drawable/recieved"
+        android:background="@drawable/image_recieved_background"
         app:layout_constraintTop_toBottomOf="@+id/message_username"
         android:visibility="invisible"
+
         />
 </android.support.constraint.ConstraintLayout>
