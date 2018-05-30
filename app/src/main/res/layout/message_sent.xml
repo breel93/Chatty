@@ -31,7 +31,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="2dp"
+        android:maxHeight="200dp"
+        android:maxWidth="150dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
         android:layout_marginTop="8dp"
         android:background="@drawable/image_sent_background"
         android:layout_marginRight="8dp"
