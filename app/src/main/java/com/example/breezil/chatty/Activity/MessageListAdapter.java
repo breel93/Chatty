@@ -1,7 +1,6 @@
 package com.example.breezil.chatty.Activity;
 
-import android.content.Context;
-import android.media.Image;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.okhttp.internal.Util;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -144,7 +143,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             imageMessageBody = (ImageView) itemView.findViewById(R.id.text_body_image);
         }
         void bind(Messages message){
-            //messageText.setText(message.getMessage());
+            //messageText.setText(message.getMessage()).;
 
             String from_user = message.getFrom();
 
