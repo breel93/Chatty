@@ -120,8 +120,9 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 imageMessageBody.setVisibility(View.INVISIBLE);
             }else {
                 messageText.setVisibility(View.INVISIBLE);
-                imageMessageBody.setMaxHeight(200);
-                imageMessageBody.setMaxWidth(150);
+                imageMessageBody.setVisibility(View.VISIBLE);
+                imageMessageBody.setMaxHeight(250);
+                imageMessageBody.setMaxWidth(250);
 
 
                 Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
@@ -174,8 +175,8 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             }else {
                 messageText.setVisibility(View.INVISIBLE);
                 imageMessageBody.setVisibility(View.VISIBLE);
-                imageMessageBody.setMaxHeight(40);
-                imageMessageBody.setMaxWidth(40);
+                imageMessageBody.setMaxHeight(250);
+                imageMessageBody.setMaxWidth(250);
 
                 Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
                         .placeholder(R.drawable.default_avatar).into(imageMessageBody);

@@ -84,7 +84,7 @@ public class ChatActivity extends AppCompatActivity {
     private ProgressDialog mProgress;
 
     //variable of the Message adapter class
-    private MessageAdapter messageAdapter;
+
     private MessageListAdapter messageListAdapter;
 
     //the number of message to load on the first instance => TOTAL_ITEMS_TO_LOAD
