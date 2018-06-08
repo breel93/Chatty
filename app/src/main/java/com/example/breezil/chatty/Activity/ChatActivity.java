@@ -41,6 +41,7 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -240,9 +241,13 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(!dataSnapshot.hasChild(chatUser)){
+                    final long date = -1 * new Date().getTime();
+
+
                     Map chatMap = new HashMap();
                     chatMap.put("seen",false);
                     chatMap.put("timestamp", ServerValue.TIMESTAMP);
+                    chatMap.put("date",date);
 
                     Map chatUserMap = new HashMap();
                     chatUserMap.put("Chat/" + currentUserId + "/" + chatUser, chatMap);
