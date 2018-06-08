@@ -44,6 +44,7 @@ public class ShowImageFull extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.fullImageBar);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

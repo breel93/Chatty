@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.breezil.chatty.Activity.ShowImageFull"
-    android:background="@drawable/back_image_seven">
+    android:background="#D3D3D3">
 
     <include layout="@layout/chatty_app_bar" android:id="@+id/fullImageBar"/>
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:src="@drawable/default_avatar"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="20dp"

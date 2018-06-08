@@ -36,7 +36,7 @@
         android:maxWidth="150dp"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/image_sent_background"
         android:layout_marginRight="8dp"
         android:id="@+id/text_body_image"

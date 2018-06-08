@@ -8,24 +8,18 @@
     tools:context="com.example.breezil.chatty.Activity.UserProfile">
 
 
-    <android.support.v7.widget.CardView
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userProfileImage"
+        android:layout_marginTop="40dp"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        app:cardCornerRadius="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:id="@+id/imageCard"
-        android:elevation="10dp">
-        <ImageView
-            android:id="@+id/userProfileImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/default_avatar"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:transitionName="imgtransition"/>
-    </android.support.v7.widget.CardView>
+        android:scaleType="centerCrop"
+        android:transitionName="imgtransition"
+        android:src="@drawable/default_avatar"
+        android:layout_centerHorizontal="true"/>
+
 
 
 
@@ -36,7 +30,7 @@
         android:id="@+id/userProfileDisplayname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageCard"
+        android:layout_below="@+id/userProfileImage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="@string/display_name__"
