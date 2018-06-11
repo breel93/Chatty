@@ -91,7 +91,7 @@ public class ChatFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        Query chatQuery = mChatRef.orderByChild("date");
+        Query chatQuery = mChatRef.orderByChild("Reverse_Time");
 
         FirebaseRecyclerAdapter<Chat_Model, ChatHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Chat_Model, ChatHolder>(
                 Chat_Model.class,

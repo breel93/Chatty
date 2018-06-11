@@ -105,6 +105,7 @@ public class ChatActivity extends AppCompatActivity {
     //lastkey
     private String mLastkey = "";
     private String mPrevKey ="";
+    long mRevTime;
 
 
 
@@ -138,6 +139,9 @@ public class ChatActivity extends AppCompatActivity {
 
         //get current users id as object
         currentUserId = mAuth.getCurrentUser().getUid();
+
+
+        mRevTime = -1 * new Date().getTime();
 
 
         //Chat fields
@@ -241,13 +245,13 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(!dataSnapshot.hasChild(chatUser)){
-                    final long date = -1 * new Date().getTime();
+
 
 
                     Map chatMap = new HashMap();
                     chatMap.put("seen",false);
                     chatMap.put("timestamp", ServerValue.TIMESTAMP);
-                    chatMap.put("date",date);
+
 
                     Map chatUserMap = new HashMap();
                     chatUserMap.put("Chat/" + currentUserId + "/" + chatUser, chatMap);
@@ -315,6 +319,7 @@ public class ChatActivity extends AppCompatActivity {
 
             Uri imageUri = data.getData();
 
+//            final long revTime = -1 * new Date().getTime();
 
             final String current_user = "messages/" + currentUserId + "/" + chatUser;
             final String chat_user = "messages/" + chatUser + "/" + currentUserId;
@@ -346,6 +351,7 @@ public class ChatActivity extends AppCompatActivity {
                         messageMap.put("type","image");
                         messageMap.put("time",ServerValue.TIMESTAMP);
                         messageMap.put("from",currentUserId);
+                        messageMap.put("Reverse_Time",mRevTime);
 
                         Map messageUserMap = new HashMap();
                         messageUserMap.put(current_user + "/" + push_id, messageMap);
@@ -497,6 +503,7 @@ public class ChatActivity extends AppCompatActivity {
             String chatUserRef = "messages/" + chatUser + "/" + currentUserId;
 
 
+
             //Firebase ref
             DatabaseReference userMessagePush = mRootRef.child("messages")
                     .child(currentUserId)
@@ -512,6 +519,7 @@ public class ChatActivity extends AppCompatActivity {
             messageMap.put( "type","text");
             messageMap.put( "time",ServerValue.TIMESTAMP);
             messageMap.put("from", currentUserId);
+            messageMap.put("Reverse_Time",mRevTime);
 
 
             Map userMessagemap = new HashMap();
