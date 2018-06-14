@@ -53,10 +53,10 @@
             android:name=".Activity.ChatActivity"
             android:parentActivityName=".Activity.MainActivity" />
         <activity android:name=".Activity.SettingsActivity" />
-        <activity android:name=".Activity.ShowImageFull"
-           android:parentActivityName=".Activity.UserProfile">
-
-        </activity>
+        <activity
+            android:name=".Activity.ShowImageFull"
+            android:parentActivityName=".Activity.UserProfile"></activity>
+        <activity android:name=".Activity.AccountSettingsActivity"></activity>
     </application>
 
 </manifest>
