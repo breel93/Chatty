@@ -3,6 +3,8 @@ package com.example.breezil.chatty.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.breezil.chatty.R;
+
 public class AccountSettingsActivity extends AppCompatActivity {
 
     @Override
