@@ -80,6 +80,8 @@ public class AllUsersActivity extends AppCompatActivity {
         View actionbarView = inflater.inflate(R.layout.search_bar,null);
         actionBar.setCustomView(actionbarView);
 
+
+
         mSearcTextbar = (EditText) findViewById(R.id.searchTextBar);
         mSearchImageBtnBar = (ImageButton) findViewById(R.id.searchBtnBar);
 
