@@ -34,4 +34,11 @@
     <string name="cancel_friend_request">Cancel Friend Request</string>
     <string name="type_message">Type Message ...</string>
     <string name="decline">Decline</string>
+
+
+    <!--setting item-->
+    <string name="user_account_settings">Your Account</string>
+    <string name="user_notification_settings">Notification</string>
+    <string name="user_chat_settings">Chat Settings</string>
+    <string name="user_help_settings">Help</string>
 </resources>
