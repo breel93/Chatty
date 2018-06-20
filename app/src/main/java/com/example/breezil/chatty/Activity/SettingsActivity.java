@@ -48,10 +48,10 @@ public class SettingsActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Settings");
 
-        mUserInfo = (CardView) findViewById(R.id.userInfoCard);
+
         mUserImage = (CircleImageView) findViewById(R.id.userSettingsImage);
         mUserName = (TextView) findViewById(R.id.userSettingsName);
-        mUserStatus = (TextView) findViewById(R.id.userSettingStatus);
+
 
 
         mAuth = FirebaseAuth.getInstance();
