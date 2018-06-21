@@ -516,7 +516,7 @@ public class ChatActivity extends AppCompatActivity {
             Map messageMap = new HashMap();
             messageMap.put( "message", message);
             messageMap.put( "seen",false);
-            messageMap.put( "type","text");
+            messageMap.put( "type","border");
             messageMap.put( "time",ServerValue.TIMESTAMP);
             messageMap.put("from", currentUserId);
             messageMap.put("Reverse_Time",mRevTime);

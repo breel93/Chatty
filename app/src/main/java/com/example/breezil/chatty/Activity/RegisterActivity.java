@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-        //get text for each field
+        //get border for each field
         regEmailtext = (EditText) findViewById(R.id.regEmailtext);
         regPassword = (EditText)findViewById(R.id.regPasswordtext);
         regUsername = (EditText) findViewById(R.id.regUsernametext);

@@ -117,7 +117,7 @@ public class ChatFragment extends Fragment {
 
                             viewHolder.setMessage("Image",model.isSeen());
 
-                        }else if(messageType.equals("text")){
+                        }else if(messageType.equals("border")){
                             String data = dataSnapshot.child("message").getValue().toString();
                             viewHolder.setMessage(data,model.isSeen());
                         }

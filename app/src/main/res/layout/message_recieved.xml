@@ -25,17 +25,22 @@
 
     <TextView
         android:id="@+id/message_body"
-        android:text="hi man, how are you?"
-        android:background="@drawable/recieved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/recieved"
+        android:elevation="5dp"
         android:maxWidth="240dp"
         android:padding="8dp"
+        android:text="hi man, how are you?"
         android:textColor="#ffffff"
-        android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/message_username"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/message_profile_Image"
-        android:layout_marginLeft="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/message_username"
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/text_message_time"
@@ -48,19 +53,21 @@
         app:layout_constraintBottom_toBottomOf="@+id/message_body" />
 
     <ImageView
+        android:id="@+id/text_body_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:padding="2dp"
-        android:maxHeight="200dp"
-        android:maxWidth="150dp"
-
+        android:layout_marginBottom="10dp"
         android:adjustViewBounds="true"
-        android:id="@+id/text_body_image"
-        app:layout_constraintLeft_toRightOf="@+id/message_profile_Image"
         android:background="@drawable/image_recieved_background"
-        app:layout_constraintTop_toBottomOf="@+id/message_username"
+        android:elevation="5dp"
+        android:maxWidth="150dp"
+        android:maxHeight="200dp"
+        android:padding="2dp"
+        
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/message_profile_Image"
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/message_username" />
 </android.support.constraint.ConstraintLayout>

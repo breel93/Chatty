@@ -10,7 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.breezil.chatty.R;
@@ -28,12 +30,20 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private TextView mLogout;
+
     private Toolbar mToolbar;
 
-    private CardView mUserInfo;
+    private RelativeLayout mUserInfo;
     private CircleImageView mUserImage;
-    private TextView mUserName, mUserStatus;
+    private TextView mUserName;
+
+    private LinearLayout mAccountSettings;
+    private LinearLayout mChatSettings;
+    private LinearLayout mNotificationSettings;
+    private LinearLayout mHelpSettings;
+    private LinearLayout mShareSettings;
+
+
 
     private DatabaseReference mUserRef;
     private FirebaseAuth mAuth;
@@ -45,14 +55,34 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        mAccountSettings = (LinearLayout) findViewById(R.id.accountSettings);
+        mChatSettings = (LinearLayout) findViewById(R.id.chatSettings);
+        mNotificationSettings = (LinearLayout) findViewById(R.id.notificationSettings);
+        mHelpSettings = (LinearLayout) findViewById(R.id.helpSettings);
+        mShareSettings = (LinearLayout) findViewById(R.id.shareSettings);
 
-//        mToolbar = (Toolbar) findViewById(R.id.settingBar);
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setTitle("Settings");
+        mAccountSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this,AccountSettingsActivity.class));
+            }
+        });
+
+
+
+
 
 
         mUserImage = (CircleImageView) findViewById(R.id.settingUserImage);
         mUserName = (TextView) findViewById(R.id.settingUserNameText);
+
+        mUserInfo = (RelativeLayout) findViewById(R.id.userInfoLayout);
+        mUserInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoSettup();
+            }
+        });
 
 
 
@@ -68,22 +98,6 @@ public class SettingsActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-        mLogout = (TextView) findViewById(R.id.logOutText);
-        mLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                sendToStart();
-
-            }
-        });
 
 
 
@@ -125,6 +139,12 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void gotoSettup() {
+        Intent settUpIntent = new Intent(SettingsActivity.this,SettupActivity.class);
+        startActivity(settUpIntent);
+        finish();
     }
 
     private void userInfo() {

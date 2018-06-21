@@ -115,7 +115,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             // messageText.setText(message.getMessage());
             String message_type = message.getType();
 
-            if(message_type.equals("text")){
+            if(message_type.equals("border")){
                 messageText.setText(message.getMessage());
                 imageMessageBody.setVisibility(View.INVISIBLE);
             }else {
@@ -169,7 +169,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
             String message_type = message.getType();
 
-            if(message_type.equals("text")){
+            if(message_type.equals("border")){
                 messageText.setText(message.getMessage());
                 imageMessageBody.setVisibility(View.INVISIBLE);
             }else {
