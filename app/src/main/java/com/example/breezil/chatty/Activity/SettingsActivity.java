@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.breezil.chatty.R;
@@ -38,19 +39,20 @@ public class SettingsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
 
-        mToolbar = (Toolbar) findViewById(R.id.settingBar);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Settings");
+//        mToolbar = (Toolbar) findViewById(R.id.settingBar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setTitle("Settings");
 
 
-        mUserImage = (CircleImageView) findViewById(R.id.userSettingsImage);
-        mUserName = (TextView) findViewById(R.id.userSettingsName);
+        mUserImage = (CircleImageView) findViewById(R.id.settingUserImage);
+        mUserName = (TextView) findViewById(R.id.settingUserNameText);
 
 
 
@@ -60,15 +62,12 @@ public class SettingsActivity extends AppCompatActivity {
         mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Uid);
 
 
+
         userInfo();
 
 
-        mUserInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SettingsActivity.this,SettupActivity.class));
-            }
-        });
+
+
 
 
 
@@ -134,12 +133,12 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue().toString();
-                String status = dataSnapshot.child("status").getValue().toString();
+
                 final String thumb_image = dataSnapshot.child("thumb_image").getValue().toString();
 
 
                 mUserName.setText(name);
-                mUserStatus.setText(status);
+
 
                 if(!thumb_image.equals("default")){
                     Picasso.with(SettingsActivity.this).load(thumb_image).networkPolicy(NetworkPolicy.OFFLINE)
@@ -194,6 +193,9 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(startIntent);
         finish();
     }
+
+
+
 
 
 }
