@@ -3,6 +3,7 @@ package com.example.breezil.chatty.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -40,6 +41,7 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -321,6 +323,8 @@ public class ChatActivity extends AppCompatActivity {
 
 //            final long revTime = -1 * new Date().getTime();
 
+
+
             final String current_user = "messages/" + currentUserId + "/" + chatUser;
             final String chat_user = "messages/" + chatUser + "/" + currentUserId;
 
@@ -516,7 +520,7 @@ public class ChatActivity extends AppCompatActivity {
             Map messageMap = new HashMap();
             messageMap.put( "message", message);
             messageMap.put( "seen",false);
-            messageMap.put( "type","border");
+            messageMap.put( "type","text");
             messageMap.put( "time",ServerValue.TIMESTAMP);
             messageMap.put("from", currentUserId);
             messageMap.put("Reverse_Time",mRevTime);

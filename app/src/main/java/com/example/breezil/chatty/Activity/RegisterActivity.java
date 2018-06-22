@@ -92,7 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void registerUser(String emailtext, String passwdtext, final String userNametext) {
+    private void registerUser(final String emailtext, final String passwdtext, final String userNametext) {
         /*
         * TextUtils checks if require fields are empty or not
         * and then toast error message if empty
@@ -129,6 +129,8 @@ public class RegisterActivity extends AppCompatActivity {
                         //in firebase database
                         HashMap<String,String> userMap = new HashMap<>();
                         userMap.put("name", userNametext );
+                        userMap.put("email", emailtext );
+                        userMap.put("password", passwdtext );
                         userMap.put("status","Hey there...Im using chatty");
                         userMap.put("thumb_image","default");
                         userMap.put("image","default Image");
