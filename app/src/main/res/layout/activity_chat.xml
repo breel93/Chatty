@@ -37,35 +37,46 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:background="#FFFAF0"
+        android:layout_marginBottom="2dp"
+        android:layout_marginStart="5dp"
         android:weightSum="10"
         android:id="@+id/linearLayout">
 
-        <ImageButton
-            android:id="@+id/userchatAddBtn"
-            android:layout_width="wrap_content"
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_add_black_24dp"
-            android:layout_weight="1"
-            android:backgroundTint="#FFFAF0"/>
+            android:layout_marginTop="3dp"
+            android:id="@+id/userchatAddBtn"
+            android:layout_marginBottom="2dp"
+            app:backgroundTint="@color/colorGrey"
+            android:src="@drawable/ic_attach_file_black_24dp"
+            android:layout_weight="2"/>
 
         <EditText
-            android:id="@+id/userChatText"
-            android:layout_width="290sp"
-            android:layout_height="match_parent"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:hint="@string/type_message"
-            android:layout_weight="8"/>
 
-        <ImageButton
-            android:id="@+id/userChatsend"
+            android:id="@+id/userChatText"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@mipmap/ic_send_black_24dp"
-            android:paddingRight="5dp"
-            android:layout_weight="1"
-            android:backgroundTint="#FFFAF0"
-            />
+            android:layout_weight="8"
+            android:elevation="3dp"
+            android:layout_marginStart="5dp"
+            android:ems="10"
+            android:paddingStart="10dp"
+            android:background="@drawable/btn_background"
+            android:hint="@string/type_message"
+            android:inputType="textMultiLine" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="2dp"
+            app:backgroundTint="@color/colorPrimary"
+            android:src="@drawable/ic_near_me_black_24dp"
+            android:id="@+id/userChatsend"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
