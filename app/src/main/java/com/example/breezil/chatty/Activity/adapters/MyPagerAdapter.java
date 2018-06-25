@@ -1,8 +1,12 @@
-package com.example.breezil.chatty.Activity;
+package com.example.breezil.chatty.Activity.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.breezil.chatty.Activity.ui.RequestFragment;
+import com.example.breezil.chatty.Activity.ui.ChatFragment;
+import com.example.breezil.chatty.Activity.ui.FriendsFragment;
 
 /**
  * Created by breezil on 7/25/2017.

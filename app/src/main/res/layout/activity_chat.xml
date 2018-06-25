@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.breezil.chatty.Activity.ChatActivity"
+    tools:context="com.example.breezil.chatty.Activity.ui.ChatActivity"
     android:background="@drawable/chatbackground"
     >
 
@@ -16,7 +16,7 @@
         android:layout_above="@+id/linearLayout"
         android:layout_below="@+id/userChatbar"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="0dp"
         android:id="@+id/swipeMessage">
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -30,6 +30,8 @@
     </android.support.v4.widget.SwipeRefreshLayout>
 
 
+
+   
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"

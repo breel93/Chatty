@@ -1,4 +1,4 @@
-package com.example.breezil.chatty.Activity;
+package com.example.breezil.chatty.Activity.ui;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.breezil.chatty.Activity.adapters.MyPagerAdapter;
+import com.example.breezil.chatty.Activity.utils.BottomNavigationHelper;
 import com.example.breezil.chatty.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

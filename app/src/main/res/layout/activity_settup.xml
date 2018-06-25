@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/profile_layer"
     android:textAlignment="center"
-    tools:context="com.example.breezil.chatty.Activity.SettupActivity">
+    tools:context="com.example.breezil.chatty.Activity.ui.SettupActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
 

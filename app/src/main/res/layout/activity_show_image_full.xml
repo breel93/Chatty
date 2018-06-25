@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.breezil.chatty.Activity.ShowImageFull"
+    tools:context="com.example.breezil.chatty.Activity.ui.ShowImageFull"
     android:background="#D3D3D3">
 
     <include layout="@layout/chatty_app_bar" android:id="@+id/fullImageBar"/>

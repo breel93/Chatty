@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.breezil.chatty.Activity.OtherSettup"
+    tools:context="com.example.breezil.chatty.Activity.ui.OtherSettup"
     android:background="@drawable/back_ground_animate">
 
 

@@ -1,4 +1,4 @@
-package com.example.breezil.chatty.Activity;
+package com.example.breezil.chatty.Activity.ui;
 
 
 import android.content.Context;
@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.breezil.chatty.Activity.model.Users;
 import com.example.breezil.chatty.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;

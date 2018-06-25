@@ -1,4 +1,4 @@
-package com.example.breezil.chatty.Activity;
+package com.example.breezil.chatty.Activity.model;
 
 /**
  * Created by breezil on 7/27/2017.

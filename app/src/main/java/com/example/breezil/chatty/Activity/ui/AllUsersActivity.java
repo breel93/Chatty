@@ -1,4 +1,4 @@
-package com.example.breezil.chatty.Activity;
+package com.example.breezil.chatty.Activity.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,10 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.breezil.chatty.Activity.utils.BottomNavigationHelper;
+import com.example.breezil.chatty.Activity.model.Users;
 import com.example.breezil.chatty.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;

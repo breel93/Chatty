@@ -1,4 +1,4 @@
-package com.example.breezil.chatty.Activity;
+package com.example.breezil.chatty.Activity.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.breezil.chatty.Activity.utils.BottomNavigationHelper;
 import com.example.breezil.chatty.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

@@ -4,21 +4,160 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.AccountSettingsActivity">
+    tools:context=".Activity.ui.AccountSettingsActivity">
 
     <include layout="@layout/chatty_app_bar" android:id="@+id/accountsettings_appbar"/>
 
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/accountsettings_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:id="@+id/accountsettingUserName"
+        android:background="@drawable/border"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:paddingStart="5dp"
+            android:text="UserName:"
+            android:layout_margin="5dp"
+            android:layout_weight="4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:layout_weight="6"
+            android:gravity="end"
+            android:paddingRight="10dp"
+            android:id="@+id/accountSettingsUserNameText"
+            />
+    </LinearLayout>
 
-    <TextView
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/accountsettingUserName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:id="@+id/accountsettingEmail"
+        android:background="@drawable/border"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:paddingStart="5dp"
+            android:text="Email:"
+            android:layout_margin="5dp"
+            android:layout_weight="4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:layout_weight="6"
+            android:gravity="end"
+            android:paddingRight="10dp"
+            android:id="@+id/accountSettingsEmailText"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/accountsettingEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:id="@+id/accountsettingFullName"
+        android:background="@drawable/border"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:paddingStart="5dp"
+            android:text="Full Name:"
+            android:layout_margin="5dp"
+            android:layout_weight="4"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            android:layout_weight="6"
+            android:gravity="end"
+            android:paddingRight="10dp"
+            android:id="@+id/accountSettingsFullNameText"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/accountsettingFullName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:id="@+id/accountsettingPassword"
+        android:background="@drawable/border"
+        android:weightSum="10">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:paddingStart="5dp"
+            android:text="Change Password:"
+            android:layout_margin="5dp"
+            android:layout_weight="4"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+
+        android:layout_marginTop="40dp"
+        android:background="@drawable/border"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
         android:id="@+id/logOutText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="57dp"
-        android:text="Log Out"
-        android:textColor="#FF0000"
-        android:textSize="20dp" />
+        android:layout_below="@id/accountsettingPassword"
+        android:weightSum="10">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="3"
+
+            android:src="@drawable/ic_power_settings_new_black_24dp" />
+
+        <TextView
+            android:layout_width="189dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_weight="7"
+            android:textColor="#FF0000"
+
+            android:text="Log Out"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+
+
+
+
 
 
 
