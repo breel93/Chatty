@@ -47,6 +47,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         Messages c = messagesList.get(position);
 
 
+
         String from_user = c.getFrom();
         String message_type = c.getType();
 

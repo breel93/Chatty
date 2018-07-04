@@ -1,4 +1,4 @@
-package com.example.breezil.chatty.Activity.model;
+package com.example.breezil.chatty.Activity.utils;
 
 import android.app.Application;
 

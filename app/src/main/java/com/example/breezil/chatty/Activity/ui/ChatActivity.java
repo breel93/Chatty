@@ -401,6 +401,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Messages mess = dataSnapshot.getValue(Messages.class);
 
+
                 itemPos++;
                 if(itemPos == 1){
                     String messagekey = dataSnapshot.getKey();

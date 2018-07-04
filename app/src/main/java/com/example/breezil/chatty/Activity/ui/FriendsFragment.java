@@ -117,13 +117,15 @@ public class FriendsFragment extends Fragment {
                             @Override
                             public void onClick(View v) {
                                 CharSequence options [] = new CharSequence[]{"Open Profile", "Send Message"};
-                                AlertDialog.Builder  builder = new AlertDialog.Builder(getContext());
+
+                                final AlertDialog.Builder  builder = new AlertDialog.Builder(getContext());
                                 builder.setTitle("Select Options");
                                 builder.setItems(options, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         //Click event for selected item
                                         if(which == 0){
+
                                             Intent profileIntent = new Intent(getContext(),UserProfile.class);
                                             profileIntent.putExtra("user_id",list_user_id);
                                             startActivity(profileIntent);
