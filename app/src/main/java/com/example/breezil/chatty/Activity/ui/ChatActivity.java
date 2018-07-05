@@ -3,8 +3,11 @@ package com.example.breezil.chatty.Activity.ui;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +22,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.breezil.chatty.Activity.adapters.MessageListAdapter;
 import com.example.breezil.chatty.Activity.model.Messages;
@@ -43,6 +48,10 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -50,6 +59,7 @@ import java.util.List;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import id.zelory.compressor.Compressor;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -98,8 +108,12 @@ public class ChatActivity extends AppCompatActivity {
     private  int mCurrentPage = 1;
 
     private static final int GALLERY_REQUEST_CODE = 1;
+    private static final int CAMERA_REQUEST_CODE = 2;
 
     private StorageReference mImageStorage;
+
+    BottomSheetDialog mBottomSheet;
+
 
 
     //sol
@@ -171,6 +185,11 @@ public class ChatActivity extends AppCompatActivity {
 
         //messagesList.setAdapter(messageAdapter);
         messagesList.setAdapter(messageListAdapter);
+
+
+
+
+
 
         //method to load the message
         loadMessages();
@@ -291,10 +310,8 @@ public class ChatActivity extends AppCompatActivity {
         chatAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent galleryIntent = new Intent();
-                galleryIntent.setType("image/*");
-                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(galleryIntent,"Choose Image"),GALLERY_REQUEST_CODE);
+                showAttachmentOptions();
+
             }
         });
 
@@ -311,10 +328,48 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
+    void showAttachmentOptions(){
+        mBottomSheet = new BottomSheetDialog(this);
+        View bottomSheetView = this.getLayoutInflater().inflate(R.layout.buttom_sheet,null);
+
+        mBottomSheet.setContentView(bottomSheetView);
+        mBottomSheet.show();
+
+
+
+        LinearLayout selectGalary = (LinearLayout) bottomSheetView.findViewById(R.id.select_gallery);
+        LinearLayout selectCamera = (LinearLayout) bottomSheetView.findViewById(R.id.select_camera);
+        LinearLayout selectDocument = (LinearLayout) bottomSheetView.findViewById(R.id.select_document);
+        selectGalary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent();
+                galleryIntent.setType("image/*");
+                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+
+                if(galleryIntent.resolveActivity(getPackageManager()) != null){
+                    startActivityForResult(Intent.createChooser(galleryIntent,"Choose Image"),GALLERY_REQUEST_CODE);
+
+                }
+
+            }
+        });
+
+        selectCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if(cameraIntent.resolveActivity(getPackageManager()) != null){
+                    startActivityForResult(cameraIntent,CAMERA_REQUEST_CODE);
+                }
+            }
+        });
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        mBottomSheet.dismiss();
         if (requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK){
 
             mProgress.setMessage("sending");
@@ -322,7 +377,7 @@ public class ChatActivity extends AppCompatActivity {
 
             Uri imageUri = data.getData();
 
-//            final long revTime = -1 * new Date().getTime();
+
 
 
 
@@ -356,7 +411,7 @@ public class ChatActivity extends AppCompatActivity {
                         messageMap.put("type","image");
                         messageMap.put("time",ServerValue.TIMESTAMP);
                         messageMap.put("from",currentUserId);
-                        messageMap.put("Reverse_Time",mRevTime);
+//                        messageMap.put("Reverse_Time",mRevTime);
 
                         Map messageUserMap = new HashMap();
                         messageUserMap.put(current_user + "/" + push_id, messageMap);
@@ -376,15 +431,72 @@ public class ChatActivity extends AppCompatActivity {
                                 }
                         });
 
-
-
-
                     }
                 }
             });
 
 
+        }else if(requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK){
+            Bundle extras = data.getExtras();
+            Bitmap cameraBitmap = (Bitmap) extras.get("data");
+            mProgress.setMessage("sending");
+            mProgress.show();
 
+            Uri cameraUri = data.getData();
+
+
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            cameraBitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+            byte[] camera_byte = byteArrayOutputStream.toByteArray();
+
+            final String current_user = "messages/" + currentUserId + "/" + chatUser;
+            final String chat_user = "messages/" + chatUser + "/" + currentUserId;
+
+            DatabaseReference user_messages_push = mRootRef.child("messages")
+                    .child(currentUserId).child(chatUser).push();
+
+
+
+            final String push_id = user_messages_push.getKey();
+
+            StorageReference storagePath = mImageStorage.child("message_images")
+                    .child(push_id + ".jpg");
+
+            UploadTask uploadTask = storagePath.putBytes(camera_byte);
+            uploadTask.addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                    String camera_url = task.getResult().getDownloadUrl().toString();
+                    if(task.isSuccessful()){
+                        Map messageMap = new HashMap();
+                        messageMap.put("message",camera_url);
+                        messageMap.put("seen",false);
+                        messageMap.put("type","image");
+                        messageMap.put("time",ServerValue.TIMESTAMP);
+                        messageMap.put("from",currentUserId);
+
+
+                        Map messageUserMap = new HashMap();
+                        messageUserMap.put(current_user + "/" + push_id, messageMap);
+                        messageUserMap.put(chat_user + "/" + push_id, messageMap);
+
+
+                        mRootRef.updateChildren(messageUserMap, new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                if (databaseError != null){
+
+                                    Log.d("CHAT_LOG",databaseError.getMessage().toString());
+                                    mProgress.dismiss();
+                                }
+
+                                mProgress.dismiss();
+                            }
+                        });
+                    }
+                }
+            });
 
         }
     }
