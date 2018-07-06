@@ -56,8 +56,11 @@
         <activity android:name=".Activity.ui.SettingsActivity" />
         <activity
             android:name=".Activity.ui.ShowImageFull"
-            android:parentActivityName=".Activity.ui.UserProfile"></activity>
-        <activity android:name=".Activity.ui.AccountSettingsActivity"></activity>
+            android:parentActivityName=".Activity.ui.UserProfile" />
+        <activity
+            android:name=".Activity.ui.AccountSettingsActivity"
+            android:parentActivityName=".Activity.ui.SettingsActivity" />
+        <activity android:name=".Activity.ui.Single_MessageImage_Activity"></activity>
     </application>
 
 </manifest>

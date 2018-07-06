@@ -64,8 +64,7 @@
         android:maxWidth="150dp"
         android:maxHeight="200dp"
         android:padding="2dp"
-        
-        android:visibility="invisible"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/message_profile_Image"
 

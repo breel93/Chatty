@@ -1,10 +1,14 @@
 package com.example.breezil.chatty.Activity.model;
 
+import com.example.breezil.chatty.Activity.utils.MessageId;
+
+import java.util.Date;
+
 /**
  * Created by breezil on 8/11/2017.
  */
 
-public class Messages {
+public class Messages extends MessageId {
     private String message, type, from;
     private long time;
     private boolean seen;

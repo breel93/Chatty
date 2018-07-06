@@ -3,6 +3,7 @@ package com.example.breezil.chatty.Activity.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ public class AccountSettingsActivity extends AppCompatActivity {
 
     private LinearLayout mLogout;
     DatabaseReference mUserRef;
+
+    Toolbar mToolBar;
 
     FirebaseAuth mAuth;
 
@@ -38,6 +41,11 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mUsername = (TextView) findViewById(R.id.accountSettingsUserNameText);
         mFullname = (TextView) findViewById(R.id.accountSettingsFullNameText);
         mEmail = (TextView) findViewById(R.id.accountSettingsEmailText);
+
+        mToolBar = (Toolbar) findViewById(R.id.accountsettings_appbar);
+        setSupportActionBar(mToolBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Edit Profile");
 
 
         loadUserData();

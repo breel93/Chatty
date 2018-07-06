@@ -169,7 +169,7 @@ public class ChatActivity extends AppCompatActivity {
 
        //declear the message adapter object as a variable that takes an arraylist obj(messlist) arg
         //messageAdapter = new MessageAdapter(messList);
-        messageListAdapter = new MessageListAdapter(messList);
+        messageListAdapter = new MessageListAdapter(messList,getApplicationContext());
 
         //recycler List
         messagesList = (RecyclerView) findViewById(R.id.messageList);
@@ -511,7 +511,7 @@ public class ChatActivity extends AppCompatActivity {
         messageQuery.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Messages mess = dataSnapshot.getValue(Messages.class);
+                Messages messages = dataSnapshot.getValue(Messages.class);
 
 
                 itemPos++;
@@ -521,7 +521,7 @@ public class ChatActivity extends AppCompatActivity {
                     mPrevKey = messagekey;
                 }
 
-                messList.add(mess);
+                messList.add(messages);
 //                messageAdapter.notifyDataSetChanged();
                 messageListAdapter.notifyDataSetChanged();
 
@@ -631,7 +631,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-            Map messageMap = new HashMap();
+            Map <String,Object> messageMap= new HashMap<>();
             messageMap.put( "message", message);
             messageMap.put( "seen",false);
             messageMap.put( "type","text");
