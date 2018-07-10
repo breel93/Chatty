@@ -131,7 +131,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
     }
 
     private class SentMessageHolder extends RecyclerView.ViewHolder {
-        TextView messageText, timeText;
+        TextView messageText, timeText,imagetimeText;
         ImageView imageMessageBody;
 
         SentMessageHolder(View itemView) {
@@ -139,6 +139,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             messageText = (TextView) itemView.findViewById(R.id.message_body);
             timeText = (TextView) itemView.findViewById(R.id.text_message_time);
             imageMessageBody = (ImageView) itemView.findViewById(R.id.text_body_image);
+            imagetimeText = (TextView) itemView.findViewById(R.id.image_message_time);
         }
         void bind(Messages message){
             // messageText.setText(message.getMessage());
@@ -176,7 +177,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 try{
                     long millisecond = message.getTime();
                     String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisecond)).toString();
-                    timeText.setText(dateString);
+                    imagetimeText.setText(dateString);
 
                 }catch (Exception e){
                     Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -202,7 +203,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
         }
     }
     private class ReceivedMessageHolder extends RecyclerView.ViewHolder{
-        TextView messageText, timeText, nameText;
+        TextView messageText, timeText, nameText, imagetimeText;
         CircleImageView profImage;
         ImageView imageMessageBody;
         ReceivedMessageHolder(View itemView) {
@@ -212,6 +213,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             nameText = (TextView) itemView.findViewById(R.id.message_username);
             profImage = (CircleImageView) itemView.findViewById(R.id.message_profile_Image);
             imageMessageBody = (ImageView) itemView.findViewById(R.id.text_body_image);
+            imagetimeText = (TextView) itemView.findViewById(R.id.image_message_time);
         }
         void bind(Messages message){
             //messageText.setText(message.getMessage()).;
