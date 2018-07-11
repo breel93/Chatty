@@ -44,7 +44,7 @@
         android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:background="@drawable/image_sent_background"
-        android:elevation="5dp"
+        android:elevation="6dp"
 
         android:padding="2dp"
         android:scaleType="centerCrop"
@@ -63,7 +63,7 @@
         android:layout_marginEnd="2dp"
 
         android:text="11:40"
-        android:textSize="5sp"
+        android:textSize="6sp"
         app:layout_constraintBottom_toBottomOf="@+id/text_body_image"
         app:layout_constraintEnd_toStartOf="@+id/text_body_image" />
 

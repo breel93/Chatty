@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.breezil.chatty.Activity.model.Messages;
 import com.example.breezil.chatty.Activity.ui.Single_MessageImage_Activity;
 import com.example.breezil.chatty.R;
@@ -172,6 +174,11 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
                         .placeholder(R.drawable.default_avatar).into(imageMessageBody);
 
+//                RequestOptions placeholderRequest = new RequestOptions();
+//                placeholderRequest.placeholder(R.drawable.default_avatar);
+//                Glide.with(context).setDefaultRequestOptions(placeholderRequest)
+//                        .load(message.getMessage()).into(imageMessageBody);
+
                 try{
 
 
@@ -234,6 +241,11 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                     nameText.setText(name);
                     Picasso.with(profImage.getContext()).load(image)
                             .placeholder(R.drawable.default_avatar).into(profImage);
+
+//                    RequestOptions placeholderRequest = new RequestOptions();
+//                    placeholderRequest.placeholder(R.drawable.default_avatar);
+//                    Glide.with(profImage.getContext()).setDefaultRequestOptions(placeholderRequest)
+//                            .load(image).into(imageMessageBody);
                 }
 
                 @Override
@@ -288,6 +300,10 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
                         .placeholder(R.drawable.default_avatar).into(imageMessageBody);
 
+//                RequestOptions placeholderRequest = new RequestOptions();
+//                placeholderRequest.placeholder(R.drawable.default_avatar);
+//                Glide.with(context).setDefaultRequestOptions(placeholderRequest)
+//                        .load(message.getMessage()).into(imageMessageBody);
             }
         }
 

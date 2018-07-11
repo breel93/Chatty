@@ -3,7 +3,9 @@ package com.example.breezil.chatty.Activity.utils;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.support.v7.app.NotificationCompat;
+
+import android.support.v4.app.NotificationCompat;
+//import android.support.v7.app.NotificationCompat;
 
 import com.example.breezil.chatty.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -28,7 +30,7 @@ public class FireMessagingServices  extends FirebaseMessagingService{
 
 
 
-        android.support.v4.app.NotificationCompat.Builder mBuilder =
+        NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                // .setLargeIcon(R.mipmap.ic_launcher)
                 .setContentTitle(notificationTitle).setContentText(notifcationMessage);

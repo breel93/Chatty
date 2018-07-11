@@ -56,6 +56,7 @@ public class ChatFragment extends Fragment {
 
     private View mView;
 
+    static boolean seen;
 
     public ChatFragment() {
         // Required empty public constructor
@@ -128,7 +129,7 @@ public class ChatFragment extends Fragment {
 
                         if(messageType.equals("image")){
 
-                            viewHolder.setMessage("image",model.isSeen ());
+                            viewHolder.setMessage("image",model.isSeen());
 
                         }else if(messageType.equals("text")){
                             String data = dataSnapshot.child("message").getValue().toString();
@@ -189,6 +190,7 @@ public class ChatFragment extends Fragment {
                         viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                seen = true;
                                 Intent chatIntent = new Intent(getContext(),ChatActivity.class);
                                 chatIntent.putExtra("user_id", list_Uid);
                                 chatIntent.putExtra("user_name", user_name);
@@ -224,7 +226,7 @@ public class ChatFragment extends Fragment {
             TextView userMessage = (TextView) mView.findViewById(R.id.userStatustext);
             userMessage.setText(message);
 
-            if(!isSeen){
+            if(!seen){
                 userMessage.setTypeface(userMessage.getTypeface(), Typeface.BOLD);
                 userMessage.getResources().getColor(R.color.colorblue);
             }else{
