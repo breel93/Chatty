@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,9 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
+import java.util.Date;
+import java.util.List;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
@@ -39,6 +43,8 @@ public class ChatFragment extends Fragment {
 
 
     private RecyclerView mChatList;
+
+
 
     private DatabaseReference mChatRef;
     private DatabaseReference mMessagedb;
@@ -108,12 +114,17 @@ public class ChatFragment extends Fragment {
 
 
 
+
+
                 final Query lastMessageQuery = mMessagedb.child(list_Uid).limitToLast(1);
                 lastMessageQuery.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                         String messageType = dataSnapshot.child("type").getValue().toString();
+
+
+
 
                         if(messageType.equals("image")){
 
@@ -122,10 +133,18 @@ public class ChatFragment extends Fragment {
                         }else if(messageType.equals("text")){
                             String data = dataSnapshot.child("message").getValue().toString();
                             viewHolder.setMessage(data,model.isSeen());
+
+                            long time = (long) dataSnapshot.child("time").getValue();
+
+                            String dateString = DateFormat.format("HH:mm :dd/MM/yyyy", new Date(time)).toString();
+                            viewHolder.setTime(dateString);
+
                         }
                         else {
                             viewHolder.setMessage("Media",model.isSeen());
                         }
+
+
 
 
 
@@ -158,6 +177,7 @@ public class ChatFragment extends Fragment {
 
                         final String user_name = dataSnapshot.child("name").getValue().toString();
                         String user_thumb = dataSnapshot.child("thumb_image").getValue().toString();
+
 
                         if(dataSnapshot.hasChild("online")){
                             String user_online = dataSnapshot.child("online").getValue().toString();
@@ -241,6 +261,13 @@ public class ChatFragment extends Fragment {
             }else {
                 setOnline.setVisibility(View.INVISIBLE);
             }
+
+        }
+
+        public void setTime(String time){
+            TextView timeText = (TextView) mView.findViewById(R.id.time_chat_text);
+            timeText.setVisibility(View.VISIBLE);
+            timeText.setText(time);
 
         }
 

@@ -152,8 +152,10 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 imageMessageBody.setVisibility(View.INVISIBLE);
                 try{
                     long millisecond = message.getTime();
-                    String dateString = DateFormat.format("dd/MM/yyyy", new Date(millisecond)).toString();
+                    String dateString = DateFormat.format("HH:mm :dd/MM/yyyy", new Date(millisecond)).toString();
                     timeText.setText(dateString);
+                    imagetimeText.setVisibility(View.INVISIBLE);
+
 
                 }catch (Exception e){
                     Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -164,20 +166,21 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 imageMessageBody.setMaxHeight(300);
                 imageMessageBody.setMaxWidth(300);
 
-                ConstraintSet constraintSet = new ConstraintSet();
-                constraintSet.clone(constraintLayout);
-                constraintSet.connect(R.id.text_message_time,ConstraintSet.LEFT,R.id.text_body_image,ConstraintSet.RIGHT,5);
-                constraintSet.connect(R.id.text_message_time,ConstraintSet.BOTTOM,R.id.text_body_image,ConstraintSet.TOP,5);
-                constraintSet.applyTo(constraintLayout);
+
 
 
                 Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
                         .placeholder(R.drawable.default_avatar).into(imageMessageBody);
 
                 try{
+
+
+
                     long millisecond = message.getTime();
-                    String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisecond)).toString();
+                    String dateString = DateFormat.format("HH:mm :dd/MM/yyyy", new Date(millisecond)).toString();
                     imagetimeText.setText(dateString);
+                    timeText.setVisibility(View.INVISIBLE);
+
 
                 }catch (Exception e){
                     Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -247,8 +250,15 @@ public class MessageListAdapter extends RecyclerView.Adapter {
 
                 try{
                     long millisecond = message.getTime();
-                    String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisecond)).toString();
+
+
+
+                    String dateString = DateFormat.format("HH:mm :dd/MM/yyyy", new Date(millisecond)).toString();
                     timeText.setText(dateString);
+                    imagetimeText.setVisibility(View.INVISIBLE);
+
+
+
 
                 }catch (Exception e){
                     Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -260,17 +270,17 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 imageMessageBody.setVisibility(View.VISIBLE);
                 imageMessageBody.setMaxHeight(300);
                 imageMessageBody.setMaxWidth(300);
-                ConstraintSet constraintSet = new ConstraintSet();
-                constraintSet.clone(constraintLayout);
-                constraintSet.connect(R.id.text_message_time,ConstraintSet.RIGHT,R.id.text_body_image,ConstraintSet.RIGHT,5);
-                constraintSet.connect(R.id.text_message_time,ConstraintSet.BOTTOM,R.id.text_body_image,ConstraintSet.TOP,5);
-                constraintSet.applyTo(constraintLayout);
+
 
 
                 try{
                     long millisecond = message.getTime();
-                    String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisecond)).toString();
-                    timeText.setText(dateString);
+
+
+                    String dateString = DateFormat.format("HH:mm :dd/MM/yyyy", new Date(millisecond)).toString();
+                    imagetimeText.setText(dateString);
+                    timeText.setVisibility(View.INVISIBLE);
+
 
                 }catch (Exception e){
                     Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
