@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.breezil.chatty.Activity.model.Friends;
 import com.example.breezil.chatty.R;
@@ -111,6 +112,8 @@ public class FriendsFragment extends Fragment {
                         //set the name
                         viewHolder.setName(userName);
                         viewHolder.setImage(userThumbImage,getContext());
+                        
+
 
                         //when a view is clicked
                         viewHolder.mView.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +168,7 @@ public class FriendsFragment extends Fragment {
         //View Holder to set each fields
         public void setDate(String date){
             TextView userNameView = (TextView) mView.findViewById(R.id.userStatustext);
-            userNameView.setText(date);
+            userNameView.setText("Since " + date);
         }
         public void setName(String name){
             TextView userNameView = (TextView) mView.findViewById(R.id.userNametext);

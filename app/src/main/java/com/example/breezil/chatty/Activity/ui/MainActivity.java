@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.breezil.chatty.Activity.adapters.MyPagerAdapter;
 import com.example.breezil.chatty.Activity.utils.BottomNavigationHelper;
@@ -67,8 +69,10 @@ public class MainActivity extends AppCompatActivity {
         mTablayout = (TabLayout) findViewById(R.id.mainTabView);
         mTablayout.setupWithViewPager(mViewPager);
         mTablayout.getTabAt(0).setIcon(R.mipmap.ic_req);
-        mTablayout.getTabAt(1).setIcon(R.drawable.chatty);
+        mTablayout.getTabAt(1).setText(R.string.app_name);
         mTablayout.getTabAt(2).setIcon(R.mipmap.ic_friend);
+        mTablayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
 
 
 

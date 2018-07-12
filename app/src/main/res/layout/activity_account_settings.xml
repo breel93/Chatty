@@ -93,6 +93,7 @@
             android:layout_margin="5dp"
             android:textSize="20dp"
             android:layout_weight="6"
+            android:visibility="invisible"
             android:gravity="end"
             android:paddingRight="10dp"
             android:id="@+id/accountSettingsFullNameText"
