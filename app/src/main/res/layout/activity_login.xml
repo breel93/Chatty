@@ -10,6 +10,13 @@
     android:id="@+id/myBackground"
 
     >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:src="@drawable/chatty" />
 
 
     <EditText
@@ -88,8 +95,9 @@
         android:layout_below="@id/loginLoginBtn"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
+        android:gravity="end"
         android:layout_toEndOf="@id/googleBtn"
-        android:layout_marginLeft="40dp"
+        android:layout_alignRight="@id/loginLoginBtn"
         android:textColor="@color/colorWhite"
         />
 
@@ -104,18 +112,6 @@
         android:layout_below="@id/loginPasswordtext"
         android:visibility="invisible"/>
 
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="5dp"
-        android:text="@string/sign_in"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/colorWhite"
-        android:textSize="30dp"
-        android:layout_alignStart="@+id/loginPasswordtext" />
 
     <TextView
         android:id="@+id/gotoSignuptext"

@@ -87,20 +87,6 @@
         android:elevation="8dp"
         />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/regUsernametext"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="130dp"
-        android:text="@string/create_a_new_account"
-        android:textSize="30dp"
-        android:fontFamily="sans-serif"
-
-        android:textColor="@color/colorWhite"
-        />
-
 
     <TextView
         android:id="@+id/gotoSignInText"
@@ -113,6 +99,14 @@
         android:text="@string/sign_in"
         android:textColor="@color/colorWhite"
         android:textSize="20dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:src="@drawable/chatty" />
     <ProgressBar
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"

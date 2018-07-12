@@ -67,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
         mTablayout = (TabLayout) findViewById(R.id.mainTabView);
         mTablayout.setupWithViewPager(mViewPager);
         mTablayout.getTabAt(0).setIcon(R.mipmap.ic_req);
-        mTablayout.getTabAt(1).setIcon(R.mipmap.ic_chatty);
+        mTablayout.getTabAt(1).setIcon(R.drawable.chatty);
         mTablayout.getTabAt(2).setIcon(R.mipmap.ic_friend);
+
 
 
 
