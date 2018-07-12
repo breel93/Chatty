@@ -75,12 +75,12 @@ public class AccountSettingsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String username = dataSnapshot.child("name").getValue().toString();
-//                String email = dataSnapshot.child("email").getValue().toString();
+                String email = dataSnapshot.child("email").getValue().toString();
 //                String fullnamme = dataSnapshot.child("full_name").getValue().toString();
 
                 mUsername.setText(username);
 //                mFullname.setText(fullnamme);
-//                mEmail.setText(email);
+                mEmail.setText(email);
             }
 
             @Override

@@ -70,10 +70,11 @@
             android:layout_width="115dp"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
             android:layout_weight="8"
             android:textColor="#2F4F4F"
             android:text="Account"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -100,9 +101,10 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="8"
+            android:layout_marginStart="20dp"
             android:text="Chat Settings"
             android:textColor="#2F4F4F"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
 
@@ -131,8 +133,9 @@
             android:layout_marginTop="5dp"
             android:layout_weight="7"
             android:textColor="#2F4F4F"
+            android:layout_marginStart="20dp"
             android:text="Notification"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
 
@@ -161,9 +164,10 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_weight="7"
+            android:layout_marginStart="20dp"
             android:textColor="#2F4F4F"
             android:text="Help"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
 
@@ -190,10 +194,11 @@
             android:layout_width="189dp"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
             android:layout_weight="7"
             android:textColor="#2F4F4F"
             android:text="Share"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
 
