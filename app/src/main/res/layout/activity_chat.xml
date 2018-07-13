@@ -63,7 +63,7 @@
             <EditText
 
                 android:id="@+id/userChatText"
-                android:layout_width="wrap_content"
+                android:layout_width="254dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="5dp"
                 android:layout_weight="8"
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="2dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginEnd="0dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_weight="1"

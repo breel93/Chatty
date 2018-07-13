@@ -23,7 +23,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_camera_alt_black_24dp"
+        android:src=""
         android:elevation="15sp"
         android:id="@+id/changeImageIcon"
         android:layout_alignBottom="@+id/settingImage"

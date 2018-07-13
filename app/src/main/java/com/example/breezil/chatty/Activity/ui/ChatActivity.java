@@ -225,7 +225,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-//
+
         mRootRef.child("Users").child(chatUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -337,10 +337,10 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-        LinearLayout selectGalary = (LinearLayout) bottomSheetView.findViewById(R.id.select_gallery);
+        LinearLayout selectGallery = (LinearLayout) bottomSheetView.findViewById(R.id.select_gallery);
         LinearLayout selectCamera = (LinearLayout) bottomSheetView.findViewById(R.id.select_camera);
         LinearLayout selectDocument = (LinearLayout) bottomSheetView.findViewById(R.id.select_document);
-        selectGalary.setOnClickListener(new View.OnClickListener() {
+        selectGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent galleryIntent = new Intent();
