@@ -1,7 +1,6 @@
 package com.example.breezil.chatty.Activity.ui;
 
 import android.content.Intent;
-import android.opengl.Visibility;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.breezil.chatty.Activity.adapters.Edit_Name_Settings;
 import com.example.breezil.chatty.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -132,6 +130,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         args.putString("user_name",username);
         Edit_Name_Settings edit_name_settings = new Edit_Name_Settings();
         edit_name_settings.setArguments(args);
+        edit_name_settings.setCancelable(false);
         edit_name_settings.show(getFragmentManager(),"Dialog");
 
     }

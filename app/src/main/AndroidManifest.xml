@@ -28,6 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
         <activity
             android:name=".Activity.ui.RegisterActivity"
             android:parentActivityName=".Activity.ui.LoginActivity" />
@@ -40,7 +43,8 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".Activity.ui.AllUsersActivity"
-            android:parentActivityName=".Activity.ui.MainActivity" />
+            android:parentActivityName=".Activity.ui.MainActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Activity.ui.UserProfile"
             android:parentActivityName=".Activity.ui.AllUsersActivity">

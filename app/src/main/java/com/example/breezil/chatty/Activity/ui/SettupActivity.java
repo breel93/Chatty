@@ -159,6 +159,7 @@ public class SettupActivity extends AppCompatActivity {
 
                 StatusDialog dialog = new StatusDialog();
                 dialog.setArguments(args);
+                dialog.setCancelable(false);
                 dialog.show(getFragmentManager(),"Dialog");
 
 

@@ -1,4 +1,4 @@
-package com.example.breezil.chatty.Activity.adapters;
+package com.example.breezil.chatty.Activity.ui;
 
 
 import android.app.DialogFragment;
@@ -33,6 +33,7 @@ public class Edit_Name_Settings extends DialogFragment {
     EditText mName;
     EditText mFullName;
     Button mSaveBtn;
+    Button mCancelBtn;
 
     private DatabaseReference mDatabaseRef;
     private FirebaseUser mUser;
@@ -66,7 +67,9 @@ public class Edit_Name_Settings extends DialogFragment {
         mName = (EditText) view.findViewById(R.id.settingEditUserName);
         mFullName = (EditText) view.findViewById(R.id.settingEditFullName);
 
-        mSaveBtn = (Button) view.findViewById(R.id.settingsSaveBtn);
+        mSaveBtn = (Button) view.findViewById(R.id.saveNameBtn);
+
+        mCancelBtn = (Button) view.findViewById(R.id.cancelNameBtn);
 
         if(full_name != null){
             mFullName.setText(full_name);
@@ -89,6 +92,13 @@ public class Edit_Name_Settings extends DialogFragment {
                 mProgress.dismiss();
                 getDialog().dismiss();
 
+            }
+        });
+
+        mCancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getDialog().dismiss();
             }
         });
 

@@ -50,7 +50,7 @@
 
         android:layout_marginStart="2dp"
         android:text="11:40"
-        android:textSize="6sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/message_body"
         app:layout_constraintStart_toEndOf="@+id/message_body" />
 
@@ -79,7 +79,7 @@
 
         android:layout_marginStart="2dp"
         android:text="11:40"
-        android:textSize="6sp"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/text_body_image"
         app:layout_constraintStart_toEndOf="@+id/text_body_image"
         />

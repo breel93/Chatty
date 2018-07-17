@@ -27,25 +27,28 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/userProfileImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20sp"
         android:text="@string/display_name__"
         android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:background="@drawable/white_text_background"/>
 
     <TextView
         android:id="@+id/userprofilestatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15sp"
         android:text="@string/users_status"
         android:textSize="18sp"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:maxLines="3"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:textColor="@color/colorWhite"
         android:layout_below="@+id/userProfileDisplayname"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:padding="10sp"
+        android:background="@drawable/white_text_background"/>
 
     <Button
         android:id="@+id/userprofilesendrequest"
