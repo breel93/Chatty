@@ -260,13 +260,9 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 try{
                     long millisecond = message.getTime();
 
-
-
                     String dateString = DateFormat.format("HH:mm :dd/MM/yyyy", new Date(millisecond)).toString();
                     timeText.setText(dateString);
                     imagetimeText.setVisibility(View.INVISIBLE);
-
-
 
 
                 }catch (Exception e){

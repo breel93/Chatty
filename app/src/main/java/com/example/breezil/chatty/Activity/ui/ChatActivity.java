@@ -401,10 +401,6 @@ public class ChatActivity extends AppCompatActivity {
                         //noinspection VisibleForTests
                         final String download_url = task.getResult().getDownloadUrl().toString();
 
-
-
-
-
                         Map messageMap = new HashMap();
                         messageMap.put("message",download_url);
                         messageMap.put("seen",false);
