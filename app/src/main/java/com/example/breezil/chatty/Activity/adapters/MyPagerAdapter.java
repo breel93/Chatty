@@ -41,16 +41,5 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 3;
     }
-//    public CharSequence getPageTitle(int Position){
-//        switch (Position){
-//            case 0:
-//                return "Request";
-//            case 1:
-//                return "Chat";
-//            case 2:
-//                return "Friends";
-//            default:
-//                return null;
-//        }
-//    }
+
 }

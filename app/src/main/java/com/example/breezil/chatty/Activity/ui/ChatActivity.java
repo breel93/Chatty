@@ -24,10 +24,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.breezil.chatty.Activity.adapters.MessageListAdapter;
-import com.example.breezil.chatty.Activity.model.Messages;
+import com.example.breezil.chatty.Activity.database.model.Messages;
 import com.example.breezil.chatty.Activity.utils.TImeSeen;
 import com.example.breezil.chatty.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,9 +48,6 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -59,7 +55,6 @@ import java.util.List;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import id.zelory.compressor.Compressor;
 
 public class ChatActivity extends AppCompatActivity {
 

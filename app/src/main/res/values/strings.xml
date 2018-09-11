@@ -4,8 +4,8 @@
     <string name="register">Register</string>
     <string name="username">User Name</string>
     <string name="create_account">Create Account</string>
-    <string name="enter_email">Enter Email</string>
-    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Email</string>
+    <string name="enter_password">Password</string>
     <string name="setting">Setting</string>
     <string name="log_out">Log Out</string>
     <string name="all_users">All Users</string>

@@ -15,8 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.breezil.chatty.Activity.model.Chat_Model;
-import com.example.breezil.chatty.Activity.ui.ChatActivity;
+import com.example.breezil.chatty.Activity.database.model.Chat_Model;
 import com.example.breezil.chatty.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,7 +31,6 @@ import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.Date;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

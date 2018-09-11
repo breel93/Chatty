@@ -1,15 +1,8 @@
 package com.example.breezil.chatty.Activity.adapters;
 
 
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
-import android.content.Intent;
-import android.icu.text.TimeZoneFormat;
 import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
@@ -19,10 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.example.breezil.chatty.Activity.model.Messages;
-import com.example.breezil.chatty.Activity.ui.Single_MessageImage_Activity;
+import com.example.breezil.chatty.Activity.database.model.Messages;
 import com.example.breezil.chatty.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -33,7 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.squareup.picasso.Picasso;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -174,10 +163,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
                         .placeholder(R.drawable.default_avatar).into(imageMessageBody);
 
-//                RequestOptions placeholderRequest = new RequestOptions();
-//                placeholderRequest.placeholder(R.drawable.default_avatar);
-//                Glide.with(context).setDefaultRequestOptions(placeholderRequest)
-//                        .load(message.getMessage()).into(imageMessageBody);
+
 
                 try{
                     long millisecond = message.getTime();
@@ -190,20 +176,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                     Toast.makeText(context, "Exception : " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
-                imageMessageBody.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-//                        Intent imgTransition = new Intent(context, Single_MessageImage_Activity.class);
-//                        imgTransition.putExtra("message_id",MessageId);
-//                        imgTransition.putExtra("from_id",fromWho);
-//
-//                        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat
-//                                .makeSceneTransitionAnimation((Activity) context,
-//                                        imageMessageBody,
-//                                        ViewCompat.getTransitionName(imageMessageBody));
-//                        context.startActivity(imgTransition,optionsCompat.toBundle());
-                    }
-                });
+
             }
 
 
@@ -223,7 +196,7 @@ public class MessageListAdapter extends RecyclerView.Adapter {
             imagetimeText = (TextView) itemView.findViewById(R.id.image_message_time);
         }
         void bind(Messages message){
-            //messageText.setText(message.getMessage()).;
+
 
             String from_user = message.getFrom();
 
@@ -239,10 +212,6 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                     Picasso.with(profImage.getContext()).load(image)
                             .placeholder(R.drawable.default_avatar).into(profImage);
 
-//                    RequestOptions placeholderRequest = new RequestOptions();
-//                    placeholderRequest.placeholder(R.drawable.default_avatar);
-//                    Glide.with(profImage.getContext()).setDefaultRequestOptions(placeholderRequest)
-//                            .load(image).into(imageMessageBody);
                 }
 
                 @Override
@@ -293,17 +262,10 @@ public class MessageListAdapter extends RecyclerView.Adapter {
                 Picasso.with(imageMessageBody.getContext()).load(message.getMessage())
                         .placeholder(R.drawable.default_avatar).into(imageMessageBody);
 
-//                RequestOptions placeholderRequest = new RequestOptions();
-//                placeholderRequest.placeholder(R.drawable.default_avatar);
-//                Glide.with(context).setDefaultRequestOptions(placeholderRequest)
-//                        .load(message.getMessage()).into(imageMessageBody);
             }
         }
 
-//        public void setTime(String date){
-//            timeText = (TextView) itemView.findViewById(R.id.text_message_time);
-//            timeText.setText(d);
-//        }
+
 
     }
 }

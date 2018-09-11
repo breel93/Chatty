@@ -21,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.breezil.chatty.Activity.utils.BottomNavigationHelper;
-import com.example.breezil.chatty.Activity.model.Users;
+import com.example.breezil.chatty.Activity.database.model.Users;
 import com.example.breezil.chatty.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;

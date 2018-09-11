@@ -1,8 +1,6 @@
-package com.example.breezil.chatty.Activity.model;
+package com.example.breezil.chatty.Activity.database.model;
 
 import com.example.breezil.chatty.Activity.utils.MessageId;
-
-import java.util.Date;
 
 /**
  * Created by breezil on 8/11/2017.
