@@ -3,14 +3,14 @@
 
 full featured simple firebase chat application
 
-## Dependecies
-  1. Firebase https://firebase.google.com
-  2. Image Cropper https://github.com/ArthurHub/Android-Image-Cropper  
-  3. Picasso https://github.com/square/picasso
-  4. Image Compressor https://github.com/zetbaitsu/Compressor  
-  5. Circe ImageView https://github.com/hdodenhof/CircleImageView
+### This App implements:
+- [Firebase](https://firebase.google.com)
+- [Image Cropper](https://github.com/ArthurHub/Android-Image-Cropper)  
+- [Picasso](https://github.com/square/picasso)
+- [Image Compressor](https://github.com/zetbaitsu/Compressor)  
+- [Circe ImageView](https://github.com/hdodenhof/CircleImageView)
   
-#### Get Apk file https://github.com/breel93/Chatty/blob/master/release/app-release-unsigned.apk
+#### Get Apk [Here](https://github.com/breel93/Chatty/blob/master/release/app-release-unsigned.apk)
 
 
 ## Screenshot at present state
