@@ -23,8 +23,4 @@ full featured simple firebase chat application
 ![90762ea6-061d-4f10-839e-71a3bcab066e](https://user-images.githubusercontent.com/20865566/48876114-7b250300-edca-11e8-94dd-98287e0ab014.png)
 ![3ef37a07-db48-4104-bf6b-aeee909f6c34](https://user-images.githubusercontent.com/20865566/48876130-9132c380-edca-11e8-8e3e-b051dc41658c.png)
 ![ac7bfe3d-951a-4e4f-aa39-61cfcda6326b](https://user-images.githubusercontent.com/20865566/48876131-91cb5a00-edca-11e8-94aa-7622e2dfb041.png)
-
-
-
-
 ![conversations](https://user-images.githubusercontent.com/20865566/42847336-96a5b4fc-89e9-11e8-8112-c1f6b32ed55f.PNG)
